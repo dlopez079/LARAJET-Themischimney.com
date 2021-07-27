@@ -22,11 +22,12 @@
 </head>
 
 <body>
-    
+
     {{-- Insert Hero Here. --}}
     @livewire('hero');
-
+    
     {{-- Testimonials --}}
+    @livewire('testimonials');
 
     {{-- About the company / founder --}}
 

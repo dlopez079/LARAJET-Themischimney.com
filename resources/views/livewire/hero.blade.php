@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-white">
+<div class="bg-white">
   <header>
     <div class="relative bg-white">
       <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
@@ -163,7 +163,7 @@
     <div>
       <!-- Hero card -->
       <div class="relative">
-        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-white"></div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
             <div class="absolute inset-0">
