@@ -423,7 +423,7 @@
 </body> --}}
 
 <body>
-    
+    @livewire('hero')
 </body>
 
 </html>
