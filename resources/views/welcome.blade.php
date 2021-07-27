@@ -22,10 +22,7 @@
 </head>
 
 <body>
-    {{-- Make sure that the Sign in and Register button are working.  --}}
     
-    {{-- May need to seperate the navbar from the Hero. --}}
-
     {{-- Insert Hero Here. --}}
     @livewire('hero');
 
