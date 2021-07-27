@@ -33,6 +33,7 @@
 
     {{-- Contact Form --}}
 
+    @livewire('sca-logo-svg')
     @livewireScripts
 </body>
 
