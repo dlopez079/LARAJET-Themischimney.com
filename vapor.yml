@@ -1,5 +1,5 @@
-id: 23024
-name: lara-themis-chimney
+id: 23026
+name: larajet-themis-chimney
 environments:
     production:
         memory: 1024
