@@ -29,11 +29,13 @@
     {{-- Testimonials --}}
     @livewire('testimonials');
 
+    {{-- Trust Partners --}}
+    @livewire('partners');  
+
     {{-- About the company / founder --}}
 
     {{-- Contact Form --}}
 
-    @livewire('sca-logo-svg')
     @livewireScripts
 </body>
 
