@@ -39,7 +39,7 @@
                 <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
                     @auth
-                        <a href="{{ url('/home') }}"
+                        <a href="{{ url('/dashboard') }}"
                             class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Home</a>
                     @else
                         <a href="{{ route('login') }}"
