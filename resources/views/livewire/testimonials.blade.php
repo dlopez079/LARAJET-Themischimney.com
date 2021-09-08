@@ -3,7 +3,7 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative py-24 px-8 bg-red-500 rounded-xl shadow-2xl overflow-hidden lg:px-16 lg:grid lg:grid-cols-2 lg:gap-x-8">
         <div class="absolute inset-0 opacity-50 filter saturate-0 mix-blend-multiply">
-          <img src="https://images.unsplash.com/photo-1627420078634-30ceb2812930?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80" alt="" class="w-full h-full object-cover">
+          <img src="./img/IMG_1227.JPG" alt="Chimney Fabrication Shop" class="w-full h-full object-cover">
         </div>
         <div class="relative lg:col-span-1">
           <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workcation-logo-white.svg" alt="">
