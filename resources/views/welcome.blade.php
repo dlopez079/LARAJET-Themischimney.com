@@ -24,13 +24,13 @@
 <body>
 
     {{-- Insert Hero Here. --}}
-    @livewire('hero');
+    @livewire('hero')
     
     {{-- Testimonials --}}
-    @livewire('testimonials');
+    @livewire('testimonials')
 
     {{-- Trust Partners --}}
-    @livewire('partners');  
+    @livewire('partners')
 
     {{-- About the company / founder --}}
 
