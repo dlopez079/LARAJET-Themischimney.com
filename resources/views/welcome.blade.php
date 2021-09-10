@@ -26,6 +26,9 @@
     {{-- Insert Hero Here. --}}
     @livewire('hero')
     
+    {{-- Insert Services Here. --}}
+    @livewire('services')
+
     {{-- Testimonials --}}
     @livewire('testimonials')
 
