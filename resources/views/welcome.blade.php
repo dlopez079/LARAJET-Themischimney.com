@@ -32,10 +32,11 @@
     {{-- Testimonials --}}
     @livewire('testimonials')
 
+    {{-- About the company / founder --}}
+    @livewire('about')
+
     {{-- Trust Partners --}}
     @livewire('partners')
-
-    {{-- About the company / founder --}}
 
     {{-- Contact Form --}}
 
