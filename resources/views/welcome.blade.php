@@ -35,10 +35,11 @@
     {{-- About the company / founder --}}
     @livewire('about')
 
+    {{-- Contact Form --}}
+    @livewire('contact-form')
+
     {{-- Trust Partners --}}
     @livewire('partners')
-
-    {{-- Contact Form --}}
 
     @livewireScripts
 </body>
