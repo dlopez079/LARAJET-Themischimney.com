@@ -24,15 +24,19 @@
                     </button>
                 </div>
                 <nav class="hidden md:flex space-x-10">
-                    <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <a href="#services" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Services
                     </a>
 
-                    <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <a href="#testimonials" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                        Testimonials
+                    </a>
+
+                    <a href="#about" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         About
                     </a>
 
-                    <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <a href="#contact" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Contact
                     </a>
                 </nav>
