@@ -7,32 +7,33 @@
         </div>
 
           <div class="relative lg:col-span-2">
+            <h1 class="text-white text-xl font-medium sm:text-2xl text-center">Testimonials</h1>
           <blockquote class="mt-6 text-white">
-            <p class="text-xl font-medium sm:text-2xl">Themis Chimney has completely transformed the chimney business in the tri-state area. We've seen amazaing quality work, higher customer satisfaction, and reduced churn.</p>
-            <footer class="mt-6">
+            <p class="text-xl font-medium">"Themis Chimney has wholly transformed the chimney business in the tri-state area. We've seen excellent quality work, higher customer satisfaction, and reduced churn."</p>
+            <footer class="mt-2">
               <p class="flex flex-col font-medium">
-                <span>David Lopez</span>
-                <span>CEO, Mattmen, Inc.</span>
+                <span>- David Lopez</span>
+                <span>- CEO, Mattmen, Inc.</span>
               </p>
             </footer>
           </blockquote> 
 
           <blockquote class="mt-6 text-white">
-            <p class="text-xl font-medium sm:text-2xl">It is an honor to work along side a company that prides themselves of their mantra of 'people first' and execute excellent work at the same time.  I am proud to continue to work closely with Mark and the Themis Chimney family.</p>
-            <footer class="mt-6">
+            <p class="text-xl font-medium">"It is an honor to work alongside a company that prides themselves of their mantra of 'people first' and execute excellent work simultaneously. I am proud to continue to work closely with Mark and the Themis Chimney family."</p>
+            <footer class="mt-2">
               <p class="flex flex-col font-medium">
-                <span>Robert Paolillo</span>
-                <span>CEO, Lusheba Designs, Inc.</span>
+                <span>- Robert Paolillo</span>
+                <span>- CEO, Lusheba Designs, Inc.</span>
               </p>
             </footer>
           </blockquote>
           
           <blockquote class="mt-6 text-white">
-            <p class="text-xl font-medium sm:text-2xl">I worked along side Themis Chimney for so many years.  It is just an amazing, open and honest family that delivers every single project quickly and efficiently.  Themis's dedicated and motivated team delivers amazing work to the New York City Housing Authority and the NYC Department of Education school buildings.</p>
-            <footer class="mt-6">
+            <p class="text-xl font-medium">"I worked alongside Themis Chimney for so many years. It is a unique, open, and honest family that delivers every single project quickly and efficiently. Themis's dedicated and motivated team provides fantastic work to the New York City Housing Authority and the NYC Department of Education school buildings."</p>
+            <footer class="mt-2">
               <p class="flex flex-col font-medium">
-                <span>Angelica Diaz</span>
-                <span>CEO, Ragazza Contracting, Inc.</span>
+                <span>- Angelica Diaz</span>
+                <span>- CEO, Ragazza Contracting, Inc.</span>
               </p>
             </footer>
           </blockquote>
