@@ -11,7 +11,11 @@
                     <h1 class="text-xl font-medium sm:text-2xl text-center">About Us</h1>
                     <footer class="mt-6">
                         <p class="flex flex-col font-medium">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, asperiores quam. Fuga eos voluptatibus animi eligendi soluta, obcaecati molestias iusto facilis voluptate delectus provident necessitatibus consequatur, quo, quae labore velit atque voluptas dolores consectetur quas fugit. Ipsam inventore cum ab voluptas, totam doloribus nam cumque, aut vero, labore ratione magnam nostrum necessitatibus suscipit numquam aperiam obcaecati earum ut a explicabo rem minus provident optio esse! Expedita quas sed molestiae assumenda excepturi necessitatibus error asperiores quaerat fugiat quasi velit aspernatur accusantium, eius modi laboriosam cumque quis, laborum dolores, saepe mollitia inventore ullam optio. Alias repellendus possimus laborum cumque expedita, ab et!
+                        Themis Chimney, Inc. is a well-known engineering company specializing in creating, designing, and remodeling chimneys for many building structures of New York City.  The company is responsible for the New York City Housing Authority, New York City School Buildings, and several private contracts. 
+                        </p>
+<br>
+                        <p class="flex flex-col font-medium">
+                        Themis Chimney, Inc. frequently donates to the "The H.I.R.E. Initiative," a company focused on the warmth and love of New York City during a tragic day in 9/11. Every year, they work together to honor the families who were negatively affected by that sad day.
                         </p>
                     </footer>           
                 </div>            
