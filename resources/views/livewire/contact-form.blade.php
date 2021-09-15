@@ -4,7 +4,7 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative py-24 px-8 bg-red-500 rounded-xl shadow-2xl overflow-hidden lg:px-16 lg:grid lg:grid-cols-2 lg:gap-x-8">
             <div class="absolute inset-0 opacity-50 filter saturate-0 mix-blend-multiply">
-            <img src="https://images.unsplash.com/photo-1512584927346-c53de69dec17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1056&q=80" alt="Chimney Fabrication Factory" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1622611906499-c25a07b79bde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80" alt="Chimney Fabrication Factory" class="w-full h-full object-cover">
             </div>
             <div class="relative lg:col-span-2">
                 <div class="mt-6 text-white">
