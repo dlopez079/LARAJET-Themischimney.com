@@ -208,8 +208,7 @@
                                     <span class="block text-red-200">Chimney Designs</span>
                                 </h1>
                                 <p class="mt-6 max-w-lg mx-auto text-center text-xl text-red-200 sm:max-w-3xl">
-                                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
-                                    commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+                                    We help you keep your Chimney safe and operational with exceptional designs and superb maintenance detailed to your needs and desires.
                                 </p>
                                 <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                                     <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
