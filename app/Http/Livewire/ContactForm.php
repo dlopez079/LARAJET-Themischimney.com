@@ -12,17 +12,40 @@ class ContactForm extends Component
     public $email;
     public $tel;
     public $message;
+
+    protected $rules = [
+        'name' => 'required',
+        'email' => 'required|email',
+        'tel' => 'required|max:15',
+        'message' => 'required|min:5'
+    ];
    
+
+    public function updated($field) 
+    {
+        $this->validateOnly($field);
+    }
+
+
     public function submit()
     {
-        $validatedData = $this->validate([
-            'name' => 'required|min:6',
-            'email' => 'required|email',
-            'tel' => 'required|max:15',
-            'message' => 'required|max:150'
-        ]);
+        // Validate before running the submitForm function. 
+        $this->validate();
    
-        Contact::create($validatedData);
+        // I used the line below to test if the information is being captured by the form. It is currently commented out.
+        // dd($this->name, $this->email, $this->phone, $this->message);
+        Contact::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'tel' => $this->tel,
+            'message' => $this->message
+        ]);
+
+         // Reset the fields in the form
+         $this->reset(['name', 'email', 'tel', 'message']);
+
+         // Display a success message to your users if validated and text is entered onto database. 
+        $this->success = "Your inquire has been submitted successfully!";
    
         // return redirect()->to('/form');
     }
