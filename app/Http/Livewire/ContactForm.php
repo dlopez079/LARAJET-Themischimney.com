@@ -7,11 +7,13 @@ use App\Models\Contact;
 
 class ContactForm extends Component
 {
+
     // Create variable for form field data.
     public $name;
     public $email;
     public $tel;
     public $message;
+    public $success;
 
     protected $rules = [
         'name' => 'required',

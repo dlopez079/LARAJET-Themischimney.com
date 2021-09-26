@@ -54,8 +54,21 @@
                                         </div>
                                     </div>
 
-                                    <!-- Form -->
+                                    <!-- Form Section-->
+                                                                
                                     <form wire:submit.prevent="submit" class="p-6 flex flex-col justify-center">
+                                        <div class="flex flex-col">
+                                            @if($success)
+                                            <div class="inline-flex w-full overflow-hidden bg-gray-100 rounded-lg shadow-2x1 mb-2">
+                                                <div class="flex items-center justify-center w-12 bg-green-500"></div>
+                                                <div class="px-3 py-1 text-left">
+                                                <span class="font-semibold text-green-500">Success</span>
+                                                <p class="mb-1 text-sm leading-none text-gray-500">{{ $success }}</p>
+                                                </div>
+                                            </div>
+                                            @endif
+                                        </div>
+
                                         <div class="flex flex-col">
                                             <label for="name" class="hidden">Full Name</label>
                                             <input wire:model="name" type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-red-500 focus:outline-none">
