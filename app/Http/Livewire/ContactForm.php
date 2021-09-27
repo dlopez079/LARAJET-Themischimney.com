@@ -28,8 +28,8 @@ class ContactForm extends Component
         $this->validateOnly($field);
     }
 
-
-    public function submit()
+    // After valication is complete, the submit button on the contact form will call for this class.
+    public function submitContactForm()
     {
         // Validate before running the submitForm function. 
         $this->validate();
