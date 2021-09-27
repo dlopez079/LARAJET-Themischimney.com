@@ -72,21 +72,41 @@
                                         <div class="flex flex-col">
                                             <label for="name" class="hidden">Full Name</label>
                                             <input wire:model.defer="name" type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-red-500 focus:outline-none">
+
+                                            <!-- Required Error Message -->
+                                            @error('name')
+                                                <p class="text-white mt-1">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="flex flex-col mt-2">
                                             <label for="email" class="hidden">Email</label>
                                             <input wire:model.defer="email" type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-red-500 focus:outline-none">
+
+                                            <!-- Required Error Message -->
+                                            @error('email')
+                                                <p class="text-white mt-1">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="flex flex-col mt-2">
                                             <label for="tel" class="hidden">Number</label>
                                             <input wire:model.defer="tel" type="text" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-red-500 focus:outline-none">
+
+                                            <!-- Required Error Message -->
+                                            @error('tel')
+                                                <p class="text-white mt-1">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="flex flex-col mt-2">
                                             <label for="message" class="hidden">Message</label>
                                             <input wire:model.defer="message" type="text" name="message" id="message" placeholder="Enter message here..." class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-red-500 focus:outline-none">
+
+                                            <!-- Required Error Message -->
+                                            @error('message')
+                                                <p class="text-white mt-1">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <button type="submit" class="md:w-32 bg-red-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-red-500 transition ease-in-out duration-300">

@@ -22,7 +22,7 @@ class ContactForm extends Component
         'message' => 'required|min:5'
     ];
    
-
+    // Create a a function for real-time validation using Limewire. You will pass the fields through here for the Limewire validation method.
     public function updated($field) 
     {
         $this->validateOnly($field);
