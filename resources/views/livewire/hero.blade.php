@@ -2,11 +2,11 @@
     class="bg-white">
     <header>
         <div class="relative bg-white">
-            <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
+            <div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:space-x-10 lg:px-8">
                 <div class="flex justify-start lg:w-0 lg:flex-1">
                     <a href="/">
                         <span class="sr-only">Themis</span>
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="50px" y="100px"
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 298.83 28.68" enable-background="new 0 0 298.83 28.68" xml:space="preserve">
                             <path fill="#020202" stroke="#000000" stroke-miterlimit="10" d="M43.68,1.8l0.85,12.14L34.9,6.25h-5.87v14.79l9.22,5.87H6.85
                             l9.22-5.87V6.25H10.2l-9.62,7.69L1.42,1.8H43.68z M74.91,1.8h29.32l-9.22,5.85v13.37l9.22,5.89H74.91l7.12-5.89v-4.1H67.48v4.1
@@ -38,11 +38,14 @@
 
                     <button 
                     @click="isOpen = !isOpen"
-                    type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500" aria-expanded="false">
+                    type="button" 
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500" 
+                    aria-expanded="false"
+                    >
                         <span class="sr-only">Open menu</span>
                         <!-- Heroicon name: outline/menu -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
                         </svg>
                     </button>
                 </div>
@@ -63,7 +66,7 @@
                         Contact
                     </a>
                 </nav>
-                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <div class="hidden sm:flex items-center justify-end md:flex-1 lg:w-0">
 
                     @auth
                     <a href="{{ url('/dashboard') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 hidden">Home</a>
@@ -93,22 +96,19 @@
               To: "opacity-0 scale-95"
           -->
             <div  
-            
-            x-show="isOpen"
-                            x-transition:enter="transition ease-out duration-100 transform"
-                            x-transition:enter-start="opacity-0 scale-95"
-                            x-transition:enter-end="opacity-100 scale-100"
-                            x-transition:leave="transition ease-in duration-75 transform"
-                            x-transition:leave-start="opacity-100 scale-100"
-                            x-transition:leave-end="opacity-0 scale-95"
-                            class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+                x-show="isOpen"
+                x-transition:enter="transition ease-out duration-100 transform"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75 transform"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                 <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                     <div class="pt-5 pb-6 px-5">
                         <div class="flex items-center justify-between">
                             <div>
-                                <x-slot name="logo">
-            <x-jet-application-logo />
-        </x-slot>
+                                <h1 class="font-large"></h1>
                             </div>
                             <div class="-mr-2">
                                 <button 
@@ -125,7 +125,7 @@
                         <div 
                             class="mt-6">
                             <nav class="grid grid-cols-1 gap-7">
-                                <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
+                                <a href="#services" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                                     <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-red-600 text-white">
                                         <!-- Heroicon name: outline/briefcase -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,7 +137,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
+                                <a href="#testimonials" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                                     <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-red-600 text-white">
                                         <!-- Heroicon name: outline/annotation -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -149,7 +149,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
+                                <a href="#about" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                                     <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-red-600 text-white">
                                         <!-- Heroicon name: outline/Book -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -161,7 +161,7 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
+                                <a href="#contact" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                                     <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-red-600 text-white">
                                         <!-- Heroicon name: outline/Phone-Out -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
