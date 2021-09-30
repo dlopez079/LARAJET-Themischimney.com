@@ -66,17 +66,17 @@
                         Contact
                     </a>
                 </nav>
-                <div class="hidden sm:flex items-center justify-end md:flex-1 lg:w-0">
+                <div class="sm:flex items-center justify-end md:flex-1 lg:w-0">
 
                     @auth
-                    <a href="{{ url('/dashboard') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 hidden">Home</a>
+                    <a href="{{ url('/dashboard') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Home</a>
                     @else
-                    <a href="{{ route('login') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 hidden">
+                    <a href="{{ route('login') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
                         Sign in
                     </a>
 
                     @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700 hidden">
+                    <a href="{{ route('register') }}" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700">
                         Register
                     </a>
                     @endif
