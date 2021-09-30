@@ -17,13 +17,14 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->foreignId('team_id');
             $table->foreignId('user_id');
-            $table->string('name');
+            $table->string('project_name')->unique();
+            $table->string('General Contractor');
             $table->string('street');
             $table->string('city');
             $table->string('state');
             $table->string('zip');
-            $table->string('referral');
             $table->longText('description');
+            $table->boolean('status')->default('inactive');
             $table->timestamps();
 
             $table->unique(['team_id', 'user_id']);
