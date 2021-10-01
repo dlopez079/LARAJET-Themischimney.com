@@ -131,59 +131,7 @@
                         </label>
                         <input wire:model.lazy="general_contractor" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-general-contractor" name="grid-general-contractor" type="text" placeholder="Enter General Contractor here">
                     </div>
-
-                    <!-- Street Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-street">
-                            Street
-                        </label>
-                        <input wire:model.lazy="street" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-street" name="grid-street" type="text" placeholder="Enter Street">
-                    </div>
-
-                    <!-- City Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-                            City
-                        </label>
-                        <div class="relative">
-                            <select wire:model.lazy="city" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="grid-city">
-                                <option>Brooklyn</option>
-                                <option>Bronx</option>
-                                <option>Long Island</option>
-                                <option>Manhattan</option>
-                                <option>Queens</option>
-                                <option>Staten Island</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Zip Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                            Zip
-                        </label>
-                        <input wire:model.lazy="zip" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="grid-zip" id="grid-zip" type="text" placeholder="90210">
-                    </div>
-
-                    <!-- Description Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-description">
-                            Description
-                        </label>
-                        <input wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="grid-description" rows="4" id="grid-description" placeholder="Enter Details Here...">
-                    </div>
-
-                    <!-- Status Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-status-active">
-                            Active
-                        </label>
-                        <input wire:model.lazy="status" name="grid-status-active" id="grid-status-active" type="radio" value="Active">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-status-not-active">
-                            Not Active
-                        </label>
-                        <input wire:model.lazy="status" name="grid-status-not-active" id="grid-status-not-active" type="radio" value="Not Active">
-                    </div>
+                    
 
                 </div>
 

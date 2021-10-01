@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Project;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProjectForm extends Component
 {
@@ -18,7 +19,11 @@ class ProjectForm extends Component
     public $zip;
     public $description;
     public $status;
+    public $user_id;
+    public $count;
     public $showModalForm = false;
+    public $slug;
+    // public $slug = SlugService::createSlug(Project::class, 'slug', 'My First Post');
 
     public function showCreateProjectModal() {
         
@@ -33,25 +38,25 @@ class ProjectForm extends Component
         $this->validate([
             'project_name' => 'required',
             'general_contractor' => 'required',
-            'street' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
-            'description' => 'required',
-            'status' => 'required'
+            // 'street' => 'required',
+            // 'city' => 'required',
+            // 'state' => 'required',
+            // 'zip' => 'required',
+            // 'description' => 'required',
+            // 'status' => 'required'
         ]);
 
         $project =new Project();
         $project->user_id = auth()->user()->id;
         $project->project_name = $this->project_name;
-        $project->slug = Str::slug($this->user_id);
+        $project->slug = $this->slug;
         $project->general_contractor = $this->general_contractor;
-        $project->street = $this->street;
-        $project->city = $this->city;
-        $project->state = $this->state;
-        $project->zip = $this->zip;
-        $project->description = $this->description;
-        $project->status = $this->status;
+        // $project->street = $this->street;
+        // $project->city = $this->city;
+        // $project->state = $this->state;
+        // $project->zip = $this->zip;
+        // $project->description = $this->description;
+        // $project->status = $this->status;
         
         $project->save();
         $this->reset();
