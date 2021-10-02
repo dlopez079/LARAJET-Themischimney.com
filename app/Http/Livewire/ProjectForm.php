@@ -13,6 +13,7 @@ class ProjectForm extends Component
 
     public $project_name;
     public $general_contractor;
+    public $client;
     public $street;
     public $city;
     public $state;
@@ -38,6 +39,7 @@ class ProjectForm extends Component
         $this->validate([
             'project_name' => 'required',
             'general_contractor' => 'required',
+            'client' => 'required',
             // 'street' => 'required',
             // 'city' => 'required',
             // 'state' => 'required',
@@ -51,6 +53,7 @@ class ProjectForm extends Component
         $project->project_name = $this->project_name;
         $project->slug = $this->slug;
         $project->general_contractor = $this->general_contractor;
+        $project->client = $this->client;
         // $project->street = $this->street;
         // $project->city = $this->city;
         // $project->state = $this->state;
