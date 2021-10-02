@@ -12,15 +12,17 @@
 
     <!-- Project Card: We will insert for each statement here. ----------------------------------------------------------------------->
     <div>
+
+    @foreach('$projects as $project')
         <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                 <div class="w-full flex items-center justify-between p-6 space-x-6">
                     <div class="flex-1 truncate">
                         <div class="flex items-center space-x-3">
-                            <h3 class="text-gray-900 text-sm font-medium truncate">Project: IS 53Q</h3>
-                            <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">Status: Active</span>
+                            <h3 class="text-gray-900 text-sm font-medium truncate">{{ $project->name }}</h3>
+                            <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ $project->status }}</span>
                         </div>
-                        <p class="mt-1 text-gray-500 text-sm truncate">GC: Maric Mechanical</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">{{ $project->general_contractor }}</p>
                         <p class="mt-1 text-gray-500 text-sm truncate">MC: NYCHA</p>
                         <p class="mt-1 text-gray-500 text-sm truncate">Description: Boiler Placement & Climate Control</p>
                     </div>
@@ -99,7 +101,7 @@
 
             <!-- More people... -->
         </ul>
-
+    @endforeach
     </div>
 
 
@@ -130,6 +132,14 @@
                             General Contractor
                         </label>
                         <input wire:model.lazy="general_contractor" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-general-contractor" name="grid-general-contractor" type="text" placeholder="Enter General Contractor here">
+                    </div>
+
+                    <!-- Street Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-street">
+                            Street
+                        </label>
+                        <input wire:model.lazy="street" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-street" name="grid-street" type="text" placeholder="Enter Street">
                     </div>
                     
 
