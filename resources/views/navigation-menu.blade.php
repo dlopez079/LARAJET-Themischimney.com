@@ -23,6 +23,14 @@
                     <x-jet-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
                         {{ __('Clients') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('prime') }}" :active="request()->routeIs('prime')">
+                        {{ __('Prime') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('general_contractors') }}" :active="request()->routeIs('general_contractors')">
+                        {{ __('General Contractors') }}
+                    </x-jet-nav-link>
                     
                 </div>
 

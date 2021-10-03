@@ -28,3 +28,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/projects', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/clients', function () {
     return view('/clients.show');
 })->name('clients');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/prime', function () {
+    return view('/prime.show');
+})->name('prime');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/general_contractors', function () {
+    return view('/general_contractors.show');
+})->name('general_contractors');
