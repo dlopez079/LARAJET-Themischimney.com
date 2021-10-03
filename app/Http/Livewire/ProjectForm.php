@@ -33,6 +33,7 @@ class ProjectForm extends Component
 
     }
 
+    // Create a method for storeProject for the Create Project Modal
     public function storeProject(){
 
         // Gather information from the Create Project Modal and enter it into MySql.
@@ -40,12 +41,12 @@ class ProjectForm extends Component
             'project_name' => 'required',
             'general_contractor' => 'required',
             'client' => 'required',
-            // 'street' => 'required',
-            // 'city' => 'required',
-            // 'state' => 'required',
-            // 'zip' => 'required',
-            // 'description' => 'required',
-            // 'status' => 'required'
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'description' => 'required',
+            'status' => 'required'
         ]);
 
         $project =new Project();
@@ -54,19 +55,16 @@ class ProjectForm extends Component
         $project->slug = $this->slug;
         $project->general_contractor = $this->general_contractor;
         $project->client = $this->client;
-        // $project->street = $this->street;
-        // $project->city = $this->city;
-        // $project->state = $this->state;
-        // $project->zip = $this->zip;
-        // $project->description = $this->description;
-        // $project->status = $this->status;
+        $project->street = $this->street;
+        $project->city = $this->city;
+        $project->state = $this->state;
+        $project->zip = $this->zip;
+        $project->description = $this->description;
+        $project->status = $this->status;
         
         $project->save();
         $this->reset();
     }
-
-
-    // Create a method for storeProject for the Create Project Modal
 
     public function render()
     {
