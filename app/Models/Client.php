@@ -17,7 +17,7 @@ class Client extends Model
     {
         return [
             'slug' => [
-                'source' => 'project_name', 'id'
+                'source' => 'name', 'id'
             ]
         ];
     }
