@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
-class CreateProjectsTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +14,10 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id'); 
-            $table->string('project_name');
+            $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('general_contractor');
-            $table->foreignId('client_id');
             $table->string('street');
             $table->string('city');
             $table->string('state')->default('NY');
@@ -27,7 +25,6 @@ class CreateProjectsTable extends Migration
             $table->longText('description');
             $table->boolean('status')->default(true);
             $table->timestamps();
-
         });
     }
 
@@ -38,6 +35,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('clients');
     }
 }
