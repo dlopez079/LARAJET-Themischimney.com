@@ -40,10 +40,10 @@ class ProjectForm extends Component
         $this->validate([
             'project_name' => 'required',
             'general_contractor' => 'required',
-            'client' => 'required',
+            // 'client' => 'required',
             'street' => 'required',
             'city' => 'required',
-            'state' => 'required',
+            // 'state' => 'required',
             'zip' => 'required',
             'description' => 'required',
             'status' => 'required'
@@ -54,10 +54,10 @@ class ProjectForm extends Component
         $project->project_name = $this->project_name;
         $project->slug = $this->slug;
         $project->general_contractor = $this->general_contractor;
-        $project->client = $this->client;
+        // $project->client = $this->client;
         $project->street = $this->street;
         $project->city = $this->city;
-        $project->state = $this->state;
+        // $project->state = $this->state;
         $project->zip = $this->zip;
         $project->description = $this->description;
         $project->status = $this->status;
