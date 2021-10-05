@@ -20,6 +20,7 @@ class ClientForm extends Component
     public $email;
     public $website;
     public $status;
+    public $description;
     public $user_id;
     public $showModalForm = false;
     
@@ -44,7 +45,8 @@ class ClientForm extends Component
             'contact' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'website' => 'website',
+            'website' => 'required',
+            'description' => 'required',
             'status' => 'required'
         ]);
 
@@ -59,6 +61,7 @@ class ClientForm extends Component
         $client->phone = $this->phone;
         $client->email = $this->email;
         $client->website = $this->website;
+        $client->website - $this->description;
         $client->status = $this->status;
         
         $client->save();
