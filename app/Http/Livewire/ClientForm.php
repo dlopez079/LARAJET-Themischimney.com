@@ -17,6 +17,7 @@ class ClientForm extends Component
     public $zip;
     public $contact;
     public $phone;
+    public $email;
     public $website;
     public $status;
     public $user_id;
@@ -42,6 +43,7 @@ class ClientForm extends Component
             'zip' => 'required',
             'contact' => 'required',
             'phone' => 'required',
+            'email' => 'required',
             'website' => 'website',
             'status' => 'required'
         ]);
@@ -55,6 +57,7 @@ class ClientForm extends Component
         $client->zip = $this->zip;
         $client->contact = $this->contact;
         $client->phone = $this->phone;
+        $client->email = $this->email;
         $client->website = $this->website;
         $client->status = $this->status;
         
