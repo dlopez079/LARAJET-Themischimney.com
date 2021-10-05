@@ -61,7 +61,7 @@ class ClientForm extends Component
         $client->phone = $this->phone;
         $client->email = $this->email;
         $client->website = $this->website;
-        $client->website - $this->description;
+        $client->description = $this->description;
         $client->status = $this->status;
         
         $client->save();
