@@ -21,7 +21,14 @@
                         </div>
                         <p class="mt-1 text-gray-500 text-sm truncate">Street: {{ $client->street }}</p>
                         <p class="mt-1 text-gray-500 text-sm truncate">City: {{ $client->city }} </p>
-                        <p class="mt-1 text-gray-500 text-sm truncate">State: {{ $client->zip }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">State: {{ $client->state }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Zip: {{ $client->zip }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Contact: {{ $client->contact }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Phone: {{ $client->phone }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Email: {{ $client->email }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Website: {{ $client->website }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $client->Description }}</p>
+
                     </div>
 
                     <!-- Image -->
@@ -30,7 +37,7 @@
                 <div>
                     <div class="-mt-px flex divide-x divide-gray-200">
                         <div class="w-0 flex-1 flex">
-                            <a href="mailto:janecooper@example.com" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                            <a href="mailto:{{ $client->email }}" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
 
                                 <!-- Heroicon name: solid/mail -->
                                 <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
