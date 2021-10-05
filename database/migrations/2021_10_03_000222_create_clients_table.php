@@ -24,6 +24,7 @@ class CreateClientsTable extends Migration
             $table->string('zip');
             $table->string('contact');
             $table->string('phone');
+            $table->string('email');
             $table->string('website');
             $table->longText('description');
             $table->boolean('status')->default(true);
