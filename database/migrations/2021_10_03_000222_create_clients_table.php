@@ -22,6 +22,9 @@ class CreateClientsTable extends Migration
             $table->string('city');
             $table->string('state')->default('NY');
             $table->string('zip');
+            $table->string('contact');
+            $table->string('phone');
+            $table->string('website');
             $table->longText('description');
             $table->boolean('status')->default(true);
             $table->timestamps();
