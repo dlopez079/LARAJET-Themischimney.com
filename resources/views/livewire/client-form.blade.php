@@ -48,7 +48,7 @@
                             </a>
                         </div>
                         <div class="-ml-px w-0 flex-1 flex">
-                            <a href="tel:+1-202-555-0170" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+                            <a href="tel:+1-{{ $client->phone }}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
 
                                 <!-- Heroicon name: solid/phone -->
                                 <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -67,6 +67,8 @@
 
 
     <!-- Modal Form for Client Entry ------------------------------------------------------------------------------------------------>
+
+    @csrf
     <x-jet-dialog-modal wire:model="showModalForm">
 
         <!-- Modal Header -->
@@ -81,18 +83,10 @@
 
                     <!-- Client Name Field -->
                     <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-client-name">
-                            Client Name
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-name">
+                            Name
                         </label>
-                        <input wire:model.lazy="client_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-client-name" name="grid-client-name" type="text" placeholder="New client">
-                    </div>
-
-                    <!-- General Contractor Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-general-contractor">
-                            General Contractor
-                        </label>
-                        <input wire:model.lazy="general_contractor" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-general-contractor" name="grid-general-contractor" type="text" placeholder="Enter General Contractor here">
+                        <input wire:model.lazy="name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-name" name="grid-name" type="text" placeholder="New client">
                     </div>
 
                     <!-- Street Field -->
@@ -103,6 +97,74 @@
                         <input wire:model.lazy="street" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-street" name="grid-street" type="text" placeholder="Enter Street">
                     </div>
                     
+                    <!-- City Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                            City
+                        </label>
+                        <input wire:model.lazy="city" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="grid-city" type="text" placeholder="Enter city">
+                    </div>
+
+                    <!-- Zip Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                            Zip
+                        </label>
+                        <input wire:model.lazy="zip" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" name="grid-zip" type="text" placeholder="Enter zip">
+                    </div>
+
+                    <!-- Contact Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-contact">
+                            Contact
+                        </label>
+                        <input wire:model.lazy="contact" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-contact" name="grid-contact" type="text" placeholder="Enter contact">
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-phone">
+                            Phone
+                        </label>
+                        <input wire:model.lazy="phone" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-phone" name="grid-phone" type="text" placeholder="Enter phone">
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
+                            Email
+                        </label>
+                        <input wire:model.lazy="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" name="grid-email" type="text" placeholder="Enter email">
+                    </div>
+
+                    <!-- Website Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-website">
+                            Website
+                        </label>
+                        <input wire:model.lazy="website" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-website" name="grid-website" type="text" placeholder="Enter website">
+                    </div>
+
+                    <!-- Description Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-description">
+                            Description
+                        </label>
+                        <input wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-description" name="grid-description" type="text" placeholder="Enter description">
+                    </div>
+
+                    <!-- Status Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-active">
+                            Active
+                        </label>
+                        <input wire:model.lazy="status" id="grid-active" name="grid-active" type="radio" value="Active">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-notActive">
+                            Not Active
+                        </label>
+                        <input wire:model.lazy="status" id="grid-notActive" name="grid-notActive" type="radio" value="Not Active">
+                    </div>
 
                 </div>
 
