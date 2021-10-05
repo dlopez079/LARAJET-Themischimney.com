@@ -16,6 +16,7 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('street');
@@ -27,7 +28,7 @@ class CreateClientsTable extends Migration
             $table->string('email');
             $table->string('website');
             $table->longText('description');
-            $table->boolean('status')->default(true);
+            $table->string('status')->default('Active');
             $table->timestamps();
         });
     }
