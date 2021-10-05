@@ -11,15 +11,17 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 class ClientForm extends Component
 {
     public $name;
+    public $slug;
     public $street;
     public $city;
-    public $state;
     public $zip;
+    public $contact;
+    public $phone;
+    public $website;
     public $status;
     public $user_id;
-    public $count;
     public $showModalForm = false;
-    public $slug;
+    
     // public $slug = SlugService::createSlug(Project::class, 'slug', 'My First Post');
 
     public function showCreateClientModal() {
@@ -29,16 +31,18 @@ class ClientForm extends Component
 
     }
 
-    // Create a method for storeProject for the Create Project Modal
+    // Create a method for storeClient for the Create Client Modal
     public function storeClient(){
 
-        // Gather information from the Create Project Modal and enter it into MySql.
+        // Gather information from the Create Client Modal and enter it into MySql.
         $this->validate([
             'name' => 'required',
             'street' => 'required',
             'city' => 'required',
-            'state' => 'required',
             'zip' => 'required',
+            'contact' => 'required',
+            'phone' => 'required',
+            'website' => 'website',
             'status' => 'required'
         ]);
 
@@ -48,8 +52,10 @@ class ClientForm extends Component
         $client->slug = $this->slug;
         $client->street = $this->street;
         $client->city = $this->city;
-        $client->state = $this->state;
         $client->zip = $this->zip;
+        $client->contact = $this->contact;
+        $client->phone = $this->phone;
+        $client->website = $this->website;
         $client->status = $this->status;
         
         $client->save();
