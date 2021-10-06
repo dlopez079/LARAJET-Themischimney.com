@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class PrimeFrom extends Component
+class PrimeForm extends Component
 {
     public $name;
     public $slug;
@@ -70,6 +70,8 @@ class PrimeFrom extends Component
 
     public function render()
     {
-        return view('livewire.prime');
+        return view('livewire.prime-form', [
+            'primes' => Prime::all()
+        ]);
     }
 }
