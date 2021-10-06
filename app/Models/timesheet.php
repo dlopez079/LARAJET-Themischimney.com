@@ -17,7 +17,7 @@ class timesheet extends Model
     {
         return [
             'slug' => [
-                'source' => 'name', 'id'
+                'source' => 'project', 'id'
             ]
         ];
     }
