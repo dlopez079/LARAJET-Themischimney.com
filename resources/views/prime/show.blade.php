@@ -7,7 +7,7 @@
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            This is the Prime Blade
+            <livewire:prime-form></livewire:prime-form>
         </div>
     </div>
 </x-app-layout>
