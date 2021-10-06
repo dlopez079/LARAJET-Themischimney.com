@@ -68,7 +68,7 @@
                 </nav>
 
                 {{-- Authentication Nav Buttons --}}
-                {{-- <div class="sm:flex items-center justify-end md:flex-1 lg:w-0">
+                <div class="sm:flex items-center justify-end md:flex-1 lg:w-0">
 
                     @auth
                     <a href="{{ url('/dashboard') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Home</a>
@@ -84,7 +84,7 @@
                     @endif
                     @endif
 
-                </div> --}}
+                </div>
             </div>
 
             <!--
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     <div class="py-6 px-5">
-                        <div class="grid grid-cols-2 gap-4 hidden">
+                        <div class="grid grid-cols-2 gap-4">
                             <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
                                 Pricing
                             </a>
@@ -192,12 +192,12 @@
                             </a>
                         </div>
                         <div class="mt-6">
-                            <a href="#" class=" hidden w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700 hidden">
+                            <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700">
                                 Sign up
                             </a>
-                            <p class="mt-6 text-center text-base font-medium text-gray-500 hidden">
+                            <p class="mt-6 text-center text-base font-medium text-gray-500 ">
                                 Employees
-                                <a href="/login" class="text-gray-900 hidden">
+                                <a href="/login" class="text-gray-900 ">
                                     Sign in
                                 </a>
                             </p>
