@@ -11,10 +11,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class TimesheetForm extends Component
 {
-    public $name;
+    public $project;
     public $slug;
     public $date;
-    public $project;
     public $city;
     public $timeIn;
     public $timeOut;
@@ -34,9 +33,8 @@ class TimesheetForm extends Component
 
         // Gather information from the Create timesheet Modal and enter it into MySql.
         $this->validate([
-            'name' => 'required',
-            'date' => 'required',
             'project' => 'required',
+            'date' => 'required',
             'city' => 'required',
             'timeIn' => 'required',
             'timeOut' => 'required',
@@ -45,10 +43,9 @@ class TimesheetForm extends Component
 
         $timesheet =new timesheet();
         $timesheet->user_id = auth()->user()->id;
-        $timesheet->name = $this->name;
+        $timesheet->project = $this->project;
         $timesheet->slug = $this->slug;
         $timesheet->date = $this->date;
-        $timesheet->project = $this->project;
         $timesheet->city = $this->city;
         $timesheet->timeIn = $this->timeIn;
         $timesheet->timeOut = $this->timeOut;
