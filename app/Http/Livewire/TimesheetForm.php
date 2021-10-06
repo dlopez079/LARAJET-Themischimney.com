@@ -13,6 +13,7 @@ class TimesheetForm extends Component
 {
     public $name;
     public $slug;
+    public $date;
     public $project;
     public $city;
     public $timeIn;
@@ -34,6 +35,7 @@ class TimesheetForm extends Component
         // Gather information from the Create timesheet Modal and enter it into MySql.
         $this->validate([
             'name' => 'required',
+            'date' => 'required',
             'project' => 'required',
             'city' => 'required',
             'timeIn' => 'required',
@@ -45,6 +47,7 @@ class TimesheetForm extends Component
         $timesheet->user_id = auth()->user()->id;
         $timesheet->name = $this->name;
         $timesheet->slug = $this->slug;
+        $timesheet->date = $this->date;
         $timesheet->project = $this->project;
         $timesheet->city = $this->city;
         $timesheet->timeIn = $this->timeIn;
