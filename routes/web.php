@@ -36,3 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/prime', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/general_contractors', function () {
     return view('/general_contractors.show');
 })->name('general_contractors');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/timesheets', function () {
+    return view('/timesheets.show');
+})->name('Timesheets');
