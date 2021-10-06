@@ -1,5 +1,5 @@
 <div>
-    <!-- Project Buttons -->
+    <!-- Prime Buttons -->
     <div class="text-center p-3 mx-auto">
 
         <x-jet-button wire:click="showCreatePrimeModal">
@@ -20,16 +20,15 @@
                                 <span
                                     class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ $prime->status }}</span>
                             </div>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Street: {{ $prime->street }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Street: {{ $prime->street }} </p>
                             <p class="mt-1 text-gray-500 text-sm truncate">City: {{ $prime->city }} </p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">State: {{ $prime->state }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">State: {{ $prime->state }} </p>
                             <p class="mt-1 text-gray-500 text-sm truncate">Zip: {{ $prime->zip }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Contact: {{ $prime->contact }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Phone: {{ $prime->phone }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Email: {{ $prime->email }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Website: {{ $prime->website }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $prime->Description }}
-                            </p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Contact: {{ $prime->contact }} </p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Phone: {{ $prime->phone }} </p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Email: {{ $prime->email }} </p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Website: {{ $prime->website }} </p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $prime->description }} </p>
 
                         </div>
 
@@ -70,7 +69,6 @@
                         </div>
                     </div>
                 </li>
-
             </ul>
         @endforeach
     </div>
@@ -82,7 +80,7 @@
     <x-jet-dialog-modal wire:model="showModalForm">
 
         <!-- Modal Header -->
-        <x-slot name="title">Create prime</x-slot>
+        <x-slot name="title">Create Prime</x-slot>
         <x-slot name="content">
 
             <!-- Form -->
