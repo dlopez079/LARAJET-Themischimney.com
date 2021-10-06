@@ -32,7 +32,7 @@ class PrimeFrom extends Component
 
     }
 
-    // Create a method for storeClient for the Create Prime Modal
+    // Create a method for storePrime for the Create Prime Modal
     public function storePrime(){
 
         // Gather information from the Create Prime Modal and enter it into MySql.
