@@ -18,7 +18,7 @@ class CreateTimesheetsTable extends Migration
             $table->string('user_id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('project_name');
+            $table->string('project');
             $table->string('city');
             $table->string('timeIn');
             $table->string('timeOut');
