@@ -2,33 +2,33 @@
     <!-- Project Buttons -->
     <div class="text-center p-3 mx-auto">
 
-        <x-jet-button wire:click="showCreateClientModal">
-            New Client
+        <x-jet-button wire:click="showCreatePrimeModal">
+            New Prime
         </x-jet-button>
     </div>
 
-    <!-- Client Card: We will insert for each statement here. ----------------------------------------------------------------------->
+    <!-- Prime Card: We will insert for each statement here. ----------------------------------------------------------------------->
     <div>
 
-        @foreach ($clients as $client)
+        @foreach ($primes as $prime)
             <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                     <div class="w-full flex items-center justify-between p-6 space-x-6">
                         <div class="flex-1 truncate">
                             <div class="flex items-center space-x-3">
-                                <h3 class="text-gray-900 text-sm font-medium truncate">{{ $client->name }}</h3>
+                                <h3 class="text-gray-900 text-sm font-medium truncate">{{ $prime->name }}</h3>
                                 <span
-                                    class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ $client->status }}</span>
+                                    class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ $prime->status }}</span>
                             </div>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Street: {{ $client->street }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">City: {{ $client->city }} </p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">State: {{ $client->state }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Zip: {{ $client->zip }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Contact: {{ $client->contact }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Phone: {{ $client->phone }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Email: {{ $client->email }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Website: {{ $client->website }}</p>
-                            <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $client->Description }}
+                            <p class="mt-1 text-gray-500 text-sm truncate">Street: {{ $prime->street }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">City: {{ $prime->city }} </p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">State: {{ $prime->state }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Zip: {{ $prime->zip }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Contact: {{ $prime->contact }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Phone: {{ $prime->phone }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Email: {{ $prime->email }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Website: {{ $prime->website }}</p>
+                            <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $prime->Description }}
                             </p>
 
                         </div>
@@ -41,7 +41,7 @@
                     <div>
                         <div class="-mt-px flex divide-x divide-gray-200">
                             <div class="w-0 flex-1 flex">
-                                <a href="mailto:{{ $client->email }}"
+                                <a href="mailto:{{ $prime->email }}"
                                     class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
 
                                     <!-- Heroicon name: solid/mail -->
@@ -55,7 +55,7 @@
                                 </a>
                             </div>
                             <div class="-ml-px w-0 flex-1 flex">
-                                <a href="tel:+1-{{ $client->phone }}"
+                                <a href="tel:+1-{{ $prime->phone }}"
                                     class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
 
                                     <!-- Heroicon name: solid/phone -->
@@ -76,13 +76,13 @@
     </div>
 
 
-    <!-- Modal Form for Client Entry ------------------------------------------------------------------------------------------------>
+    <!-- Modal Form for prime Entry ------------------------------------------------------------------------------------------------>
 
     @csrf
     <x-jet-dialog-modal wire:model="showModalForm">
 
         <!-- Modal Header -->
-        <x-slot name="title">Create Client</x-slot>
+        <x-slot name="title">Create prime</x-slot>
         <x-slot name="content">
 
             <!-- Form -->
@@ -91,7 +91,7 @@
 
                 <div class="flex flex-wrap -mx-3 mb-2">
 
-                    <!-- Client Name Field -->
+                    <!-- Prime Name Field -->
                     <div class="w-full px-5 mb-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-name">
@@ -99,7 +99,7 @@
                         </label>
                         <input wire:model.lazy="name"
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="grid-name" name="grid-name" type="text" placeholder="New client">
+                            id="grid-name" name="grid-name" type="text" placeholder="New prime">
                     </div>
 
                     <!-- Street Field -->
@@ -213,7 +213,7 @@
 
         <!-- Modal Footer -->
         <x-slot name="footer">
-            <x-jet-button wire:click="storeClient">Save Client</x-jet-button>
+            <x-jet-button wire:click="storePrime">Save Prime</x-jet-button>
         </x-slot>
 
     </x-jet-dialog-modal>
