@@ -49,7 +49,7 @@
                         </svg>
                     </button>
                 </div>
-                <nav class="hidden md:flex space-x-10">
+                <nav class="hidden md:flex space-x-10 pr-5">
                     <a href="#services" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Services
                     </a>
@@ -66,7 +66,9 @@
                         Contact
                     </a>
                 </nav>
-                <div class="sm:flex items-center justify-end md:flex-1 lg:w-0">
+
+                {{-- Authentication Nav Buttons --}}
+                {{-- <div class="sm:flex items-center justify-end md:flex-1 lg:w-0">
 
                     @auth
                     <a href="{{ url('/dashboard') }}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Home</a>
@@ -82,7 +84,7 @@
                     @endif
                     @endif
 
-                </div>
+                </div> --}}
             </div>
 
             <!--
@@ -190,12 +192,12 @@
                             </a>
                         </div>
                         <div class="mt-6">
-                            <a href="#" class=" hidden w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700">
+                            <a href="#" class=" hidden w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700 hidden">
                                 Sign up
                             </a>
-                            <p class="mt-6 text-center text-base font-medium text-gray-500">
+                            <p class="mt-6 text-center text-base font-medium text-gray-500 hidden">
                                 Employees
-                                <a href="/login" class="text-gray-900">
+                                <a href="/login" class="text-gray-900 hidden">
                                     Sign in
                                 </a>
                             </p>
