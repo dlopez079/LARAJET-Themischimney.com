@@ -7,7 +7,7 @@
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            This is the General Contractor form.
+            <livewire:gc-form></livewire:gc-form>
         </div>
     </div>
 </x-app-layout>
