@@ -16,10 +16,9 @@ class CreateTimesheetsTable extends Migration
         Schema::create('timesheets', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('name')->unique();
+            $table->string('project')->unique();
             $table->string('slug')->unique();
             $table->date('date');
-            $table->string('project');
             $table->string('city');
             $table->string('timeIn');
             $table->string('timeOut');
