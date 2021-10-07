@@ -19,6 +19,7 @@ class TimesheetForm extends Component
     public $timeOut;
     public $hours;
     public $user_id;
+    public $team_id;
     public $showModalForm = false;
 
     public function showCreateTimesheetModal() {
@@ -43,6 +44,7 @@ class TimesheetForm extends Component
 
         $timesheet =new timesheet();
         $timesheet->user_id = auth()->user()->id;
+        $timesheet->team_id = auth()->user()->currentteam->id;
         $timesheet->project = $this->project;
         $timesheet->slug = $this->slug;
         $timesheet->date = $this->date;
