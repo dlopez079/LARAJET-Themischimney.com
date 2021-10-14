@@ -46,11 +46,11 @@
         <a href="#" class="focus:outline-none">
           <!-- Extend touch target to entire panel -->
           <span class="absolute inset-0" aria-hidden="true"></span>
-          Request time off
+          Enter Time
         </a>
       </h3>
       <p class="mt-2 text-sm text-gray-500">
-        Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+        Compensation will be honored when you complete and sign the time spent on each of your assigned projects.  
       </p>
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -74,11 +74,11 @@
         <a href="#" class="focus:outline-none">
           <!-- Extend touch target to entire panel -->
           <span class="absolute inset-0" aria-hidden="true"></span>
-          Benefits
+          Comments
         </a>
       </h3>
       <p class="mt-2 text-sm text-gray-500">
-        Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+        Feel free to provide feedback, suggestions, and/or ideas in which this application may address.
       </p>
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -106,7 +106,7 @@
         </a>
       </h3>
       <p class="mt-2 text-sm text-gray-500">
-        Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+        All financial issues will be handed during a scheduled call or scheduled meeting.  Disputes will be handled with paper trail and not word to mouth. Make sure you accurately enter your time and expenses with signature.
       </p>
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -134,7 +134,7 @@
         </a>
       </h3>
       <p class="mt-2 text-sm text-gray-500">
-        Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+        Gather reporting of employees to use for both compensation and expense reimbursement.
       </p>
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -162,7 +162,7 @@
         </a>
       </h3>
       <p class="mt-2 text-sm text-gray-500">
-        Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+        Submit all expenses along with images by the end of your work week so you can get reimbursed.  
       </p>
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -192,7 +192,7 @@
         </a>
       </h3>
       <p class="mt-2 text-sm text-gray-500">
-        Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+        It is important that you complete training of the Themis Chimney Application so you can earn your Themis App badge.  
       </p>
     </div>
     <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
