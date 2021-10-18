@@ -9,7 +9,7 @@ class CommentForm extends Component
 {
 
     // Create variable for form field data.
-    public $description;
+    public $comment;
     public $showModalForm = false;
     
 
@@ -26,13 +26,13 @@ class CommentForm extends Component
 
         // Gather information from the Create comment Modal and enter it into MySql.
         $this->validate([
-            'description' => 'required|min:5',
+            'comment' => 'required|min:5',
           ]);
 
         $comment =new comment();
         $comment->user_id = auth()->user()->id;
         $comment->team_id = auth()->user()->currentteam->id;
-        $comment->description = $this->description;
+        $comment->comment = $this->comment;
        
         $comment->save();
         $this->reset();
