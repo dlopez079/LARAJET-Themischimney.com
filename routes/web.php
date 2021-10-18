@@ -40,3 +40,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/general_contractors', fun
 Route::middleware(['auth:sanctum', 'verified'])->get('/timesheets', function () {
     return view('/timesheets.show');
 })->name('timesheets');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/comments', function () {
+    return view('/comments.show');
+})->name('comments');
