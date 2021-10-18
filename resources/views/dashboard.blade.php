@@ -99,7 +99,7 @@
     </div>
     <div class="mt-8">
       <h3 class="text-lg font-medium">
-        <a href="mailto:adia@themischimney.com" class="focus:outline-none">
+        <a href="mailto:support@mattmen.com" class="focus:outline-none">
           <!-- Extend touch target to entire panel -->
           <span class="absolute inset-0" aria-hidden="true"></span>
           Schedule a one-on-one
