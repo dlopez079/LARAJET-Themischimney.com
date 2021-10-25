@@ -27,7 +27,7 @@
                         <p class="mt-1 text-gray-500 text-sm truncate">Phone: {{ $client->phone }}</p>
                         <p class="mt-1 text-gray-500 text-sm truncate">Email: {{ $client->email }}</p>
                         <p class="mt-1 text-gray-500 text-sm truncate">Website: {{ $client->website }}</p>
-                        <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $client->Description }}</p>
+                        <p class="mt-1 text-gray-500 text-sm truncate">Description: {{ $client->description }}</p>
 
                     </div>
 
