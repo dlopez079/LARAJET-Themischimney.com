@@ -4,12 +4,15 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Client;
+use Livewire\WithPagination;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ClientForm extends Component
 {
+    use WithPagination;
+
     public $name;
     public $slug;
     public $street;
@@ -23,6 +26,7 @@ class ClientForm extends Component
     public $description;
     public $user_id;
     public $showModalForm = false;
+    public $showClientCard = false; 
     
     // public $slug = SlugService::createSlug(Project::class, 'slug', 'My First Post');
 
@@ -71,7 +75,7 @@ class ClientForm extends Component
     public function render()
     {
         return view('livewire.client-form', [
-            'clients' => Client::all()
+            'clients' => Client::paginate(3),
         ]);
     }
 }
