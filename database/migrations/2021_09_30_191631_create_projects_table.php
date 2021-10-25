@@ -18,12 +18,12 @@ class CreateProjectsTable extends Migration
             $table->foreignId('user_id'); 
             $table->string('project_name');
             $table->string('slug')->unique();
-            $table->string('general_contractor');
-            $table->foreignId('client_id')->nullable();
-            $table->string('street')->nullable();
-            $table->string('city')->nullable();
+            $table->foreignId('general_contractor_id');
+            $table->foreignId('client_id');
+            $table->string('street');
+            $table->string('city');
             $table->string('state')->default('NY');
-            $table->string('zip')->nullable();
+            $table->string('zip');
             $table->longText('description')->nullable();
             $table->string('status')->default('Active');
             $table->timestamps();
