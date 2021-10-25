@@ -14,7 +14,7 @@ class CreateTimesheetsTable extends Migration
     public function up()
     {
         Schema::create('timesheets', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->id();
             $table->foreignId('user_id')->unique();
             $table->string('project');
             $table->string('slug')->unique();
