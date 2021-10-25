@@ -18,8 +18,9 @@ class CreateProjectsTable extends Migration
             $table->foreignId('user_id'); 
             $table->string('project_name');
             $table->string('slug')->unique();
-            $table->foreignId('general_contractor_id');
             $table->foreignId('client_id');
+            $table->foreignId('prime_id');
+            $table->foreignId('general_contractor_id');
             $table->string('street');
             $table->string('city');
             $table->string('state')->default('NY');
