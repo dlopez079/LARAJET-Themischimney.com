@@ -9,5 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <livewire:client-form></livewire:client-form>
         </div>
+
+        <div name="showClientCard id="showClientCard" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <livewire:client-details></livewire:client-details>
+        </div>
     </div>
 </x-app-layout>
