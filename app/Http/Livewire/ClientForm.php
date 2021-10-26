@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Client;
+use Cocur\Slugify\Slugify;
 use Livewire\WithPagination;
+use \Illuminate\Session\SessionManager;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -26,10 +28,13 @@ class ClientForm extends Component
     public $description;
     public $user_id;
     public $showModalForm = false;
-    public $showClientCard = false; 
+
     
     // public $slug = SlugService::createSlug(Project::class, 'slug', 'My First Post');
 
+    // ***** SHOW CLIENT MODAL FORM *****
+    // This functionj/method is responsible for displaying the client modal form.
+    // The client model form is where you will enter and save client information. 
     public function showCreateClientModal() {
         
         // Change the public variable showModelForm from false to true because you are going from not showing the modal to showing it. 
@@ -37,6 +42,7 @@ class ClientForm extends Component
 
     }
 
+    // ***** STORE CLIENT INFO *****
     // Create a method for storeClient for the Create Client Modal
     public function storeClient(){
 
@@ -72,10 +78,13 @@ class ClientForm extends Component
         $this->reset();
     }
     
+    // ***** RENDER THE COMPONENT *****
+    // Render the component and emit wire click on individual clients.
     public function render()
     {
         return view('livewire.client-form', [
             'clients' => Client::paginate(3),
+            $this->emit('showClientCard')
         ]);
     }
 }
