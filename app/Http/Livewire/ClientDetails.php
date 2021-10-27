@@ -15,12 +15,12 @@ class ClientDetails extends Component
     public $selected_city;
     public $selected_state;
     public $selected_zip;
-    // public $contact;
-    // public $phone;
+    public $selected_contact;
+    public $selected_phone;
     public $selected_email;
-    // public $website;
-    // public $description;
-    // public $user_id;
+    public $selected_website;
+    public $selected_description;
+
     public $showClientCardContainer = false;
 
     protected $listeners = ['showClientCard'];
@@ -45,6 +45,9 @@ class ClientDetails extends Component
         // Show client status
         $this->selected_status = $client->status;
 
+        // Show client contact
+        $this->selected_contact = $client->contact;
+
         // Show client street
         $this->selected_street = $client->street.",";
 
@@ -60,6 +63,14 @@ class ClientDetails extends Component
         // Show client email
         $this->selected_email = $client->email;
 
+        // Show client Telephone
+        $this->selected_phone = $client->phone;
+
+        // Show client website
+        $this->selected_website = $client->website;
+
+        // Show client description
+        $this->selected_description = $client->description;
     }
 
     public function render()
