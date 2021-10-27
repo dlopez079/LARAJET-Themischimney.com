@@ -27,6 +27,8 @@
             </div>
             <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
                 <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+
+                    <!-- Client Full Name -->
                     <div class="sm:col-span-1">
                         <dt class="text-sm font-medium text-gray-500">
                             Full name
@@ -35,6 +37,8 @@
                             {{ $selected_name }}
                         </dd>
                     </div>
+
+                    <!-- Client Address -->
                     <div class="sm:col-span-1">
                         <dt class="text-sm font-medium text-gray-500">
                             Address: 
@@ -43,6 +47,8 @@
                             {{ $selected_street }} {{ $selected_city }} {{ $selected_state }} {{ $selected_zip }}
                         </dd>
                     </div>
+
+                    <!-- Client Email Address -->
                     <div class="sm:col-span-1">
                         <dt class="text-sm font-medium text-gray-500">
                             Email address
@@ -51,22 +57,48 @@
                             {{ $selected_email }}
                         </dd>
                     </div>
+
+                    <!-- Client Telephone Number -->
                     <div class="sm:col-span-1">
                         <dt class="text-sm font-medium text-gray-500">
-                            Salary expectation
+                            Telephone
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            $120,000
+                            Client->Phone # here
                         </dd>
                     </div>
+
+                    <!-- Client Website Number -->
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Website
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            Client->website # here
+                        </dd>
+                    </div>
+
+                    <!-- Client Other Number -->
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Secondary Telephone
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            Client->2nd Phone # here
+                        </dd>
+                    </div>
+
+                    <!-- Client Description -->
                     <div class="sm:col-span-2">
                         <dt class="text-sm font-medium text-gray-500">
-                            About
+                            About / Description
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+                            Client->description here
                         </dd>
                     </div>
+
+                    <!-- Client Attachments -->
                     <div class="sm:col-span-2">
                         <dt class="text-sm font-medium text-gray-500">
                             Attachments
