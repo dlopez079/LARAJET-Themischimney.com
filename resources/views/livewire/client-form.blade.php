@@ -15,11 +15,11 @@
             <li>
 
                 <!-- 
-                    This will create a row of clients.  The row is clickable and should ignite the showClientModal as an action.
+                    This will create a row of clients.  The row is clickable and should ignite the showClientCard below as an action.
                     Pass the client information through the method that is going to be ignited when the user clicks on the individual client row. 
                 -->
                 <a 
-                    wire:click="$emit('showClientCard')" 
+                    wire:click="$emit('showClientCard', {{ $client->id }} )" 
                     class="block hover:bg-gray-50" 
                     type="button"
                     >
@@ -71,6 +71,7 @@
 
     </div>
 
+    <!-- Client Pagination -->
     <div class="py-2">
         {{ $clients->links() }}
     </div>
