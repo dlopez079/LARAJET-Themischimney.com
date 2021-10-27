@@ -8,6 +8,8 @@
 
         <!-- Client Details Card -->
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+
+            <!-- Top Section of Client Details Card -->
             <div class="px-4 py-5 sm:px-6">
 
                 <!-- Display the selected Id for the client card. -->
@@ -25,6 +27,8 @@
                     {{ $selected_status }}
                 </p>
             </div>
+
+            <!-- Bottom Section of Client Details Card -->
             <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
                 <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
 
@@ -64,7 +68,7 @@
                             Telephone
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            Client->Phone # here
+                            {{ $selected_phone }}
                         </dd>
                     </div>
 
@@ -74,7 +78,7 @@
                             Website
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            Client->website # here
+                            {{ $selected_website}}
                         </dd>
                     </div>
 
@@ -84,7 +88,7 @@
                             Secondary Telephone
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            Client->2nd Phone # here
+                            
                         </dd>
                     </div>
 
@@ -94,7 +98,7 @@
                             About / Description
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900">
-                            Client->description here
+                            {{ $selected_description }}
                         </dd>
                     </div>
 
