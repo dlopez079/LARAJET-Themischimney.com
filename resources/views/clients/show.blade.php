@@ -10,8 +10,8 @@
             <livewire:client-form></livewire:client-form>
         </div>
 
-        <div name="showClientCard id="showClientCard" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:client-details></livewire:client-details>
-        </div>
+        <livewire:client-details></livewire:client-details>
+
+        
     </div>
 </x-app-layout>
