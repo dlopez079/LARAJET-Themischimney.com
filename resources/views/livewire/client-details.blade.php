@@ -2,7 +2,7 @@
 
     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 
-        <div class="mt-6 text-gray-500 text-center">
+        <div class="mt-6 text-gray-500 text-center pb-3">
             Select Client Above to display Details.
         </div>
 
