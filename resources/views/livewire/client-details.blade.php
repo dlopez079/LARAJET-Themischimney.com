@@ -116,7 +116,7 @@
                                             <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
                                         </svg>
                                         <span class="ml-2 flex-1 w-0 truncate">
-                                            resume_back_end_developer.pdf
+                                            sketcher_drawing.pdf
                                         </span>
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
@@ -132,7 +132,7 @@
                                             <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
                                         </svg>
                                         <span class="ml-2 flex-1 w-0 truncate">
-                                            coverletter_back_end_developer.pdf
+                                            change_order.pdf
                                         </span>
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
