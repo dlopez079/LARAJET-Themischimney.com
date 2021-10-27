@@ -7,45 +7,62 @@ use App\Models\Client;
 
 class ClientDetails extends Component
 {
-
-    public $name;
-    public $slug;
-    public $street;
-    public $city;
-    public $zip;
-    public $contact;
-    public $phone;
-    public $email;
-    public $website;
-    public $status;
-    public $description;
-    public $user_id;
-    public $showClientCard = false;
+    
     public $selected_id;
-
-   
-    public $prompt;
+    public $selected_name;
+    public $selected_status;
+    public $selected_street;
+    public $selected_city;
+    public $selected_state;
+    public $selected_zip;
+    // public $contact;
+    // public $phone;
+    // public $email;
+    // public $website;
+    // public $description;
+    // public $user_id;
+    public $showClientCardContainer = false;
 
     protected $listeners = ['showClientCard'];
 
-    // *****SHOW CLIENT MODAL*****
+    
+    
+    // *****SHOW CLIENT CARD UNDERNEATH CLIENT LIST*****
     // This function/method is responsible for displaying the individual client modal.
     // This function/method activates when you click on row of the client table.
     // The client modal is wher you will see all details of the client.
-    public function showClientCard() {
+    public function showClientCard(Client $client) {
+
+        // Show client Card
+        $this->showClientCardContainer = true;
+
+        // Show client ID along with Header string.
+        $this->selected_id = "Client ID: ".$client->id;
         
-        // Prompt Test to see if the event listener is working.
-        $this->prompt = "The listener is working!";
+        // Show client name along with header string.
+        $this->selected_name = "Client Name: ".$client->name;
+
+        // Show client status
+        $this->selected_status = $client->status;
+
+        // Show client street
+        $this->selected_street = $client->street.",";
+
+        // Show client City
+        $this->selected_city = $client->city.",";
+
+        // Show client State
+        $this->selected_state = $client->state;
+
+        // Show client zip
+        $this->selected_zip = $client->zip;
+
         
-        // Change the public variable showModelForm from false to true because you are going from not showing the modal to showing it. 
-        // $this->showClientCard = true;
 
     }
 
     public function render()
     {
-        return view('livewire.client-details', [
-            'clients' => Client::all(),
-        ]);
+        return view('livewire.client-details');
     }
 }
