@@ -17,7 +17,7 @@ class ClientDetails extends Component
     public $selected_zip;
     // public $contact;
     // public $phone;
-    // public $email;
+    public $selected_email;
     // public $website;
     // public $description;
     // public $user_id;
@@ -48,16 +48,17 @@ class ClientDetails extends Component
         // Show client street
         $this->selected_street = $client->street.",";
 
-        // Show client City
+        // Show client city
         $this->selected_city = $client->city.",";
 
-        // Show client State
+        // Show client state
         $this->selected_state = $client->state;
 
         // Show client zip
         $this->selected_zip = $client->zip;
 
-        
+        // Show client email
+        $this->selected_email = $client->email;
 
     }
 
