@@ -37,10 +37,10 @@ class ClientDetails extends Component
         $this->showClientCardContainer = true;
 
         // Show client ID along with Header string.
-        $this->selected_id = "Client ID: ".$client->id;
+        $this->selected_id = "# ".$client->id;
         
         // Show client name along with header string.
-        $this->selected_name = "Client Name: ".$client->name;
+        $this->selected_name = $client->name;
 
         // Show client status
         $this->selected_status = $client->status;
