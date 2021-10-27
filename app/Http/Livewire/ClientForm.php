@@ -15,6 +15,7 @@ class ClientForm extends Component
 {
     use WithPagination;
 
+    public $client;
     public $name;
     public $slug;
     public $street;
@@ -83,8 +84,7 @@ class ClientForm extends Component
     public function render()
     {
         return view('livewire.client-form', [
-            'clients' => Client::paginate(3),
-            $this->emit('showClientCard')
+             'clients' => Client::orderBy('id', 'desc')->paginate(5),
         ]);
     }
 }
