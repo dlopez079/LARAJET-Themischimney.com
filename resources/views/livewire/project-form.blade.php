@@ -54,7 +54,7 @@
         <x-slot name="content">
 
             <!-- Form -->
-            <form class="w-full max-w-sm">
+            <form class="w-full">
                 @csrf
 
                 <div class="flex flex-wrap -mx-3 mb-2">
@@ -65,15 +65,19 @@
                             Project Name
                         </label>
                         <input wire:model.lazy="project_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-project-name" name="grid-project-name" type="text" placeholder="New Project">
+                        @error('project_name') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
                     </div>
 
-                    <!-- General Contractor Field -->
-                    <div class="w-full px-5 mb-6">
+                    <!-- 
+                        General Contractor Field.
+                        Create a drop down for this field that pulls data from the GC table.
+                    -->
+                    <!-- <div class="w-full px-5 mb-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-general-contractor">
                             General Contractor
                         </label>
                         <input wire:model.lazy="general_contractor" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-general-contractor" name="grid-general-contractor" type="text" placeholder="Enter General Contractor here">
-                    </div>
+                    </div> -->
 
                     <!-- Street Field -->
                     <div class="w-full px-5 mb-6">
@@ -81,6 +85,7 @@
                             Street
                         </label>
                         <input wire:model.lazy="street" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-street" name="grid-street" type="text" placeholder="Enter Street">
+                        @error('street') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
                     </div>
 
                     <!-- City Field -->
@@ -89,37 +94,54 @@
                             City
                         </label>
                         <input wire:model.lazy="city" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="grid-city" type="text" placeholder="Enter city">
+                        @error('city') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
                     </div>
 
-                    <!-- zip Field -->
+                    <!-- Zip Field -->
                     <div class="w-full px-5 mb-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-street">
                             Zip
                         </label>
                         <input wire:model.lazy="zip" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" name="grid-zip" type="text" placeholder="Enter zip">
+                        @error('zip') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
                     </div>
 
-                    <!-- zip Field -->
+                    <!-- Description Field -->
                     <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-street">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-description">
                             Description
                         </label>
-                        <input wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-description" name="grid-description" type="text" placeholder="Enter description">
+                        <textarea wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-description" name="grid-description" type="text" placeholder="Enter description" rows="5"></textarea>
+                        @error('description') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
                     </div>
 
                     <!-- Status Field -->
                     <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-street">
-                            Active
-                        </label>
-                        <input wire:model.lazy="status" id="grid-status" name="grid-status" type="radio" value="Active">
 
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-street">
-                            Not Active
-                        </label>
-                        <input wire:model.lazy="status" id="grid-status" name="grid-status" type="radio" value="Not Active">
+                        <div class="flex">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 px-2" for="grid-active">
+                                Active
+                            </label>
+                            <input wire:model.lazy="status" id="grid-active" name="grid-active" type="radio" value="Active">
+
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 px-2" for="grid-notActive">
+                                Not Active
+                            </label>
+                            <input wire:model.lazy="status" id="grid-notActive" name="grid-notActive" type="radio" value="Not Active">
+                        </div>
+                        
+                        <div>
+                        @error('status') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
+                        </div>
                     </div>
 
+                    <!-- Attachment Field -->
+                    <div class="w-full px-5 mb-6">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-attachments">
+                            Attachments
+                        </label>
+                        <input wire:model.lazy="attachments" id="grid-attachments" name="grid-attachments" type="file">
+                    </div>
                 </div>
 
             </form>
