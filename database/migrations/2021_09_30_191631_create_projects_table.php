@@ -27,7 +27,7 @@ class CreateProjectsTable extends Migration
             $table->string('zip');
             $table->longText('description')->nullable();
             $table->string('status')->default('Active');
-            $table->file('attachments')->nullable();
+            $table->string('attachments')->nullable();
             $table->timestamps();
 
         });
