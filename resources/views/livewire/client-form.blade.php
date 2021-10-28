@@ -18,11 +18,7 @@
                     This will create a row of clients.  The row is clickable and should ignite the showClientCard below as an action.
                     Pass the client information through the method that is going to be ignited when the user clicks on the individual client row. 
                 -->
-                <a 
-                    wire:click="$emit('showClientCard', {{ $client->id }} )" 
-                    class="block hover:bg-gray-50" 
-                    type="button"
-                    >
+                <a wire:click="$emit('showClientCard', {{ $client->id }} )" class="block hover:bg-gray-50" type="button">
                     <div class="px-4 py-4 sm:px-6">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-indigo-600 truncate">
@@ -87,7 +83,7 @@
 
         <!-- Form Content-->
         <x-slot name="content">
-            <form class="w-full max-w-sm">
+            <form class="w-full">
                 @csrf
 
                 <div class="flex flex-wrap -mx-3 mb-2">
