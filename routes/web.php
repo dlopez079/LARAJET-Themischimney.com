@@ -45,6 +45,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/comments', function () {
     return view('/comments.show');
 })->name('comments');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/projects.edit', function () {
-    return view('/projects.edit');
-})->name('projects.edit');
+
