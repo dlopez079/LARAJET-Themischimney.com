@@ -15,12 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id'); 
+            $table->foreignId('user_id')->nullable();
             $table->string('project_name');
             $table->string('slug')->unique();
-            $table->foreignId('client_id');
-            $table->foreignId('prime_id');
-            $table->foreignId('general_contractor_id');
+            $table->foreignId('client_id')->nullable();
+            $table->foreignId('prime_id')->nullable();
+            $table->foreignId('general_contractor_id')->nullable();
             $table->string('street');
             $table->string('city');
             $table->string('state')->default('NY');
