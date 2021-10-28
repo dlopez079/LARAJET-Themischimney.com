@@ -54,10 +54,10 @@ class ClientForm extends Component
             'city' => 'required',
             'zip' => 'required',
             'contact' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'website' => 'required',
-            'description' => 'required',
+            'phone' => 'required | digits:10',
+            'email' => 'required | email',
+            'website' => 'required | url',
+            'description' => 'required | min:6 | max: 150',
             'status' => 'required'
         ]);
 
