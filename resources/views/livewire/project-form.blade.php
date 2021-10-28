@@ -14,7 +14,11 @@
 
             @foreach($projects as $project)
             <li>
-                <a wire:click="$emit('showProjectCard', {{ $project->id }} ) " class="block hover:bg-gray-50">
+                <a 
+                    href="#projectCard" 
+                    wire:click="$emit('showProjectCard', {{ $project->id }} ) " 
+                    class="block hover:bg-gray-50"
+                    >
                     <div class="flex items-center px-4 py-4 sm:px-6">
                         <div class="min-w-0 flex-1 flex items-center">
 
