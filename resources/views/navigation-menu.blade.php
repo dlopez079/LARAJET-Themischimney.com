@@ -16,27 +16,19 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+                    {{-- Dashboard Navigation Dropdown Link --}}
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
+                    {{-- Projects Navigation Dropdown Link --}}
                     <x-jet-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
                         {{ __('Projects') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
-                        {{ __('Clients') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('prime') }}" :active="request()->routeIs('prime')">
-                        {{ __('Prime') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('general_contractors') }}"
-                        :active="request()->routeIs('general_contractors')">
-                        {{ __('General Contractors') }}
-                    </x-jet-nav-link>
-
+                    
+                    {{-- Timesheets Navigation Dropdown in a link --}}
                     <x-jet-nav-link href="{{ route('timesheets') }}" :active="request()->routeIs('timesheets')">
                         {{ __('Timesheets') }}
                     </x-jet-nav-link>
@@ -48,6 +40,10 @@
 
             {{-- Right Navigation Bar --}}
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+
+                {{-- Client/Contractors Navigation Dropown Link --}}
+                <livewire:client-contractor-dropdown></livewire:client-contractor-dropdown>
+
 
                 <!-- Teams Dropdown Menu -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
