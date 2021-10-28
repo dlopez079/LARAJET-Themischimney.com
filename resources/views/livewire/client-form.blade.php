@@ -19,6 +19,7 @@
                     Pass the client information through the method that is going to be ignited when the user clicks on the individual client row. 
                 -->
                 <a 
+                    href="#clientCard"
                     wire:click="$emit('showClientCard', {{ $client->id }} )" 
                     class="block hover:bg-gray-50" 
                     type="button"
