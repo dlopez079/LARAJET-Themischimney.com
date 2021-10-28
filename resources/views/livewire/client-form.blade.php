@@ -18,7 +18,11 @@
                     This will create a row of clients.  The row is clickable and should ignite the showClientCard below as an action.
                     Pass the client information through the method that is going to be ignited when the user clicks on the individual client row. 
                 -->
-                <a wire:click="$emit('showClientCard', {{ $client->id }} )" class="block hover:bg-gray-50" type="button">
+                <a 
+                    wire:click="$emit('showClientCard', {{ $client->id }} )" 
+                    class="block hover:bg-gray-50" 
+                    type="button"
+                    >
                     <div class="px-4 py-4 sm:px-6">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-indigo-600 truncate">
@@ -157,17 +161,17 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-description">
                             Description
                         </label>
-                        <input wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-description" name="grid-description" type="text" placeholder="Enter description">
+                        <textarea wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-description" name="grid-description" type="text" placeholder="Enter description" rows="5"></textarea>
                     </div>
 
                     <!-- Status Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-active">
+                    <div class="w-full px-5 mb-6 flex">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 px-2" for="grid-active">
                             Active
                         </label>
                         <input wire:model.lazy="status" id="grid-active" name="grid-active" type="radio" value="Active">
 
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-notActive">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 px-2" for="grid-notActive">
                             Not Active
                         </label>
                         <input wire:model.lazy="status" id="grid-notActive" name="grid-notActive" type="radio" value="Not Active">
