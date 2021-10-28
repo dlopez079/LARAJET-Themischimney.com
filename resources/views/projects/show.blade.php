@@ -10,8 +10,7 @@
             <livewire:project-form></livewire:project-form>
         </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:project-edit></livewire:project-edit>
-        </div>
+        <livewire:project-edit></livewire:project-edit>
+        
     </div>
 </x-app-layout>

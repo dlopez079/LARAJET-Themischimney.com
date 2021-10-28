@@ -8,6 +8,7 @@ use App\Models\Client;
 class ClientDetails extends Component
 {
     
+    // Established the public variable needed to save data.
     public $selected_id;
     public $selected_name;
     public $selected_status;
@@ -23,9 +24,11 @@ class ClientDetails extends Component
 
     public $showClientCardContainer = false;
 
+    // Add a listener for the anchor tag listings on Form.
+    // Each anchor tag should be clickable.  
+    // The click will take them to the details card.
+    // Execute the method in the brackets.
     protected $listeners = ['showClientCard'];
-
-    
     
     // *****SHOW CLIENT CARD UNDERNEATH CLIENT LIST*****
     // This function/method is responsible for displaying the individual client modal.
