@@ -8,11 +8,13 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class ProjectForm extends Component
 {
 
     use WithFileUploads;
+    use WithPagination;
 
     public $project_name;
     public $general_contractor;
@@ -70,10 +72,12 @@ class ProjectForm extends Component
         $this->reset();
     }
 
+    // ***** RENDER THE COMPONENT *****
+    // Render the component and display results in descending order by id while paginating. 
     public function render()
     {
         return view('livewire.project-form', [
-            'projects' => Project::all()
+            'projects' => Project::orderBy('id', 'desc')->paginate(5)
         ]);
     }
 }

@@ -80,7 +80,7 @@ class ClientForm extends Component
     }
     
     // ***** RENDER THE COMPONENT *****
-    // Render the component and emit wire click on individual clients.
+    // Render the component and display results in descending order by id while paginating. 
     public function render()
     {
         return view('livewire.client-form', [
