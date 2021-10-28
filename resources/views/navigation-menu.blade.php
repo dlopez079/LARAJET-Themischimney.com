@@ -39,7 +39,7 @@
             </div>
 
             {{-- Right Navigation Bar --}}
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden md:flex sm:items-center sm:ml-6">
 
                 {{-- Client/Contractors Navigation Dropown Link --}}
                 <livewire:client-contractor-dropdown></livewire:client-contractor-dropdown>
@@ -163,7 +163,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="-mr-2 flex items-center md:hidden">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -174,15 +174,45 @@
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-            </div>
+            </div>  
         </div>
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden md:flex-col">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
+                {{ __('Projects') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('timesheets') }}" :active="request()->routeIs('timesheets')">
+                {{ __('Timesheets') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
+                {{ __('Clients') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('prime') }}" :active="request()->routeIs('prime')">
+                {{ __('Prime') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('general_contractors') }}" :active="request()->routeIs('general_contractors')">
+                {{ __('General Contractors') }}
             </x-jet-responsive-nav-link>
         </div>
 
