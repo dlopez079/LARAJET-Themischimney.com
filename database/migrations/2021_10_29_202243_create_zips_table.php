@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 class CreateZipsTable extends Migration
 {
@@ -15,6 +16,7 @@ class CreateZipsTable extends Migration
     {
         Schema::create('zips', function (Blueprint $table) {
             $table->id();
+            $table->string('code', 10)->unique(); // I elected to go with VARCHAR(10) since zip codes can go up to 10 spaces if using the hyphen.
             $table->timestamps();
         });
     }
