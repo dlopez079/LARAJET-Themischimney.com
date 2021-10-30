@@ -15,6 +15,8 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
+            $table->string('city');
+            $table->foreignId->integer('zip_id'); // This column will reference the Zip
             $table->timestamps();
         });
     }
