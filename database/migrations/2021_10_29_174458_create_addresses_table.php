@@ -16,8 +16,10 @@ class CreateAddressesTable extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->string('street')->unique(); // We should not have the same address twice.
-            $table->string('suite', 5); // Suite #'s are not more than 5 digits.
-            $table->foreignId->integer('zip_id'); // This foreign key will reference the zip code table.
+            $table->char('floor', 2); // The number of the floor will never be 3 digits.
+            $table->string('rooms'); // The rooms will be written out.
+            $table->char('state, 2'); // The state will always be 2 digits in caps.
+            $table->string('zip_id, 10'); // The zip code will be 10 digits with a hyphen.  
             $table->timestamps();
         });
     }
