@@ -17,10 +17,11 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('tel');
-            $table->string('message');
+            $table->string('first_name');
+            $table->string('last_name')->index();  // Last name is the column that will be searched the most so I made that the index.
+            $table->string('email')->unique(); // There will not be two of the same emails. 
+            $table->string('tel', 10);
+            $table->string('cell', 10);
             $table->timestamps();
         });
     }
