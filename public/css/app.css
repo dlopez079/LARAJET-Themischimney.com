@@ -1,4 +1,4 @@
-/*! tailwindcss v2.2.16 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*! tailwindcss v2.2.17 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
 Document
@@ -1219,14 +1219,20 @@ select {
 .mb-4 {
 	margin-bottom: 1rem;
 }
+.mr-1\.5 {
+	margin-right: 0.375rem;
+}
+.mr-1 {
+	margin-right: 0.25rem;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
+}
 .-mt-px {
 	margin-top: -1px;
 }
 .-mr-px {
 	margin-right: -1px;
-}
-.mb-2 {
-	margin-bottom: 0.5rem;
 }
 .ml-8 {
 	margin-left: 2rem;
@@ -1251,6 +1257,9 @@ select {
 }
 .inline-flex {
 	display: inline-flex;
+}
+.table {
+	display: table;
 }
 .flow-root {
 	display: flow-root;
@@ -1542,6 +1551,9 @@ select {
 .whitespace-nowrap {
 	white-space: nowrap;
 }
+.break-all {
+	word-break: break-all;
+}
 .rounded-md {
 	border-radius: 0.375rem;
 }
@@ -1645,10 +1657,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
 }
-.bg-gray-500 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
-}
 .bg-indigo-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
@@ -1668,6 +1676,10 @@ select {
 .bg-gray-50 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+}
+.bg-gray-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 .bg-indigo-50 {
 	--tw-bg-opacity: 1;
@@ -1706,15 +1718,6 @@ select {
 }
 .bg-opacity-60 {
 	--tw-bg-opacity: 0.6;
-}
-.bg-cover {
-	background-size: cover;
-}
-.bg-center {
-	background-position: center;
-}
-.bg-no-repeat {
-	background-repeat: no-repeat;
 }
 .object-cover {
 	-o-object-fit: cover;
@@ -1785,6 +1788,10 @@ select {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
 }
+.px-5 {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
 .py-0\.5 {
 	padding-top: 0.125rem;
 	padding-bottom: 0.125rem;
@@ -1792,10 +1799,6 @@ select {
 .py-0 {
 	padding-top: 0px;
 	padding-bottom: 0px;
-}
-.px-5 {
-	padding-left: 1.25rem;
-	padding-right: 1.25rem;
 }
 .py-16 {
 	padding-top: 4rem;
@@ -1838,6 +1841,9 @@ select {
 }
 .pb-1 {
 	padding-bottom: 0.25rem;
+}
+.pr-5 {
+	padding-right: 1.25rem;
 }
 .pb-6 {
 	padding-bottom: 1.5rem;
@@ -1998,13 +2004,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(6, 95, 70, var(--tw-text-opacity));
 }
-.text-red-200 {
-	--tw-text-opacity: 1;
-	color: rgba(254, 202, 202, var(--tw-text-opacity));
-}
 .text-red-700 {
 	--tw-text-opacity: 1;
 	color: rgba(185, 28, 28, var(--tw-text-opacity));
+}
+.text-red-200 {
+	--tw-text-opacity: 1;
+	color: rgba(254, 202, 202, var(--tw-text-opacity));
 }
 .text-gray-300 {
 	--tw-text-opacity: 1;
@@ -2211,6 +2217,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
+.hover\:text-indigo-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(99, 102, 241, var(--tw-text-opacity));
+}
 .focus\:z-10:focus {
 	z-index: 10;
 }
@@ -2367,6 +2377,10 @@ select {
 		grid-column: span 4 / span 4;
 	}
 
+	.sm\:col-span-2 {
+		grid-column: span 2 / span 2;
+	}
+
 	.sm\:mx-0 {
 		margin-left: 0px;
 		margin-right: 0px;
@@ -2499,6 +2513,10 @@ select {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
+	.sm\:grid-cols-3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
 	.sm\:items-start {
 		align-items: flex-start;
 	}
@@ -2519,6 +2537,10 @@ select {
 		justify-content: space-between;
 	}
 
+	.sm\:gap-4 {
+		gap: 1rem;
+	}
+
 	.sm\:gap-5 {
 		gap: 1.25rem;
 	}
@@ -2533,10 +2555,21 @@ select {
 		margin-bottom: calc(0px * var(--tw-space-y-reverse));
 	}
 
+	.sm\:divide-y > :not([hidden]) ~ :not([hidden]) {
+		--tw-divide-y-reverse: 0;
+		border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+		border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+	}
+
 	.sm\:divide-y-0 > :not([hidden]) ~ :not([hidden]) {
 		--tw-divide-y-reverse: 0;
 		border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
 		border-bottom-width: calc(0px * var(--tw-divide-y-reverse));
+	}
+
+	.sm\:divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+		--tw-divide-opacity: 1;
+		border-color: rgba(229, 231, 235, var(--tw-divide-opacity));
 	}
 
 	.sm\:overflow-hidden {
@@ -2591,6 +2624,10 @@ select {
 		padding: 1.5rem;
 	}
 
+	.sm\:p-0 {
+		padding: 0px;
+	}
+
 	.sm\:px-6 {
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
@@ -2604,6 +2641,11 @@ select {
 	.sm\:px-20 {
 		padding-left: 5rem;
 		padding-right: 5rem;
+	}
+
+	.sm\:py-5 {
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
 	}
 
 	.sm\:py-24 {
@@ -2684,8 +2726,16 @@ select {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
+	.md\:flex-col {
+		flex-direction: column;
+	}
+
 	.md\:gap-6 {
 		gap: 1.5rem;
+	}
+
+	.md\:gap-4 {
+		gap: 1rem;
 	}
 
 	.md\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
