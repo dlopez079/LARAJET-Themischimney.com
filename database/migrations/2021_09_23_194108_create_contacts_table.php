@@ -19,9 +19,10 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name')->index();  // Last name is the column that will be searched the most so I made that the index.
+            $table->string('title');
             $table->string('email')->unique(); // There will not be two of the same emails. 
             $table->string('tel', 10);
-            $table->string('cell', 10);
+            $table->string('cel', 10);
             $table->timestamps();
         });
     }
