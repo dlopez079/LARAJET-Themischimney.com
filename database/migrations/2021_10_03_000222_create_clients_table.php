@@ -16,19 +16,11 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('name')->unique();
+            $table->string('company_name')->unique();
             $table->string('slug')->unique();
-            $table->string('street');
-            $table->string('city');
-            $table->string('state')->default('NY');
-            $table->string('zip');
-            $table->string('contact');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('website');
-            $table->longText('description');
-            $table->string('status')->default('Active');
+            $table->string('company_phone', 10);
+            $table->string('company_website');
+            $table->boolean('status')->default(false); // Determine wheither the client is active or disabled.
             $table->timestamps();
         });
     }
