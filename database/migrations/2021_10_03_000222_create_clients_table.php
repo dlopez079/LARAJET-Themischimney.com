@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('slug')->unique();
             $table->string('company_phone', 10);
             $table->string('company_website');
-            $table->boolean('status')->default(false); // Determine wheither the client is active or disabled.
+            $table->boolean('status')->default(true); // Determine wheither the client is active or disabled.
             $table->timestamps();
         });
     }
