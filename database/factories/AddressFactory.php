@@ -24,7 +24,6 @@ class AddressFactory extends Factory
     {
         return [
             // Address fields
-            
             'street' => $this->faker->unique()->streetAddress(),
             'floor' => $this->faker->randomDigitNotNull(),
             'room' => $this->faker->secondaryAddress(), //secondaryAddress(), ex. 'Suite 961'

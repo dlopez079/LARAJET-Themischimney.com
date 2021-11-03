@@ -13,10 +13,10 @@ class Address extends Model
     protected $guarded = [];
 
     
-    protected static function newFactory()
-     {
-        return AddressFactory::new();    
-     }
+   protected static function newFactory()
+   {
+      return AddressFactory::new();    
+   }
 
 }
 
