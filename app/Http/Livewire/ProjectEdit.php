@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Project;
+use App\Models\Attachment;
 
 class ProjectEdit extends Component
 {
@@ -38,7 +39,7 @@ class ProjectEdit extends Component
         $this->showprojectCardContainer = true;
 
         // Show project ID along with Header string.
-        $this->selected_id = "# ".$project->id;
+        $this->selected_id = $project->id;
         
         // Show project name along with header string.
         $this->selected_project = $project->project_name;
@@ -72,10 +73,16 @@ class ProjectEdit extends Component
 
         // Show project description
         $this->selected_description = $project->description;
+
+        // return $this->selected_id;
     }
 
+  
     public function render()
     {
-        return view('livewire.project-edit');
+        return view('livewire.project-edit', [
+            'attachments' => Attachment::all()
+            ->where('project_id', $this->selected_id)
+        ]);
     }
 }
