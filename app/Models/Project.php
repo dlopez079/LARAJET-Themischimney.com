@@ -22,4 +22,11 @@ class Project extends Model
         ];
     }
 
+    /**
+     * Get the attachments for the Project.
+     */
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class);
+    }
 }

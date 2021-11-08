@@ -77,4 +77,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    /**
+     * Get the attachments for the User.
+     */
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class);
+    }
 }
