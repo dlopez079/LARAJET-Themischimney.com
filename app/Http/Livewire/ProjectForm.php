@@ -9,13 +9,15 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Livewire\WithFileUploads;  // Required for attachments
-use Livewire\WithPagination;
+use Livewire\WithPagination; // Required to paginate the list of projects. 
+use Illuminate\Support\Facades\Storage; // Required to pull attachments from S3.
+
 
 class ProjectForm extends Component
 {
 
     use WithFileUploads;  // Required for attachments
-    use WithPagination;
+    use WithPagination; // Required to paginate the list of projects. 
 
     public $project_name;
     public $general_contractor;
@@ -35,8 +37,9 @@ class ProjectForm extends Component
     public $file_name; // Variable to save attachment / Required for attachment
     public $file; //Variable to save file / Required for attachment
     public $current_project_id;
-    
 
+    
+  
     public function showCreateProjectModal() {
         
         // Change the public variable showModelForm from false to true because you are going from not showing the modal to showing it. 
@@ -83,16 +86,19 @@ class ProjectForm extends Component
 
         // Store the uploaded attachments in the "attachments" directory of the default filesystem disk and S3
         foreach ($this->attachments as $this->attachment) {
-            $file = new Attachment(); // Create a new Attachment object that will store Store info for the attachment table in MySQL.
-            $this->attachment->store('attachments', 's3'); // Save attachment on Amazon S3// Store in the "attachment" directory.
+            
+            $fileName = $this->attachment->getClientOriginalName();
+            $path = $this->attachment->store('attachments', 's3'); // Save attachment on Amazon S3// Store in the "attachment" directory of the local-themischimney.com bucket.
+            $file = new Attachment(); // Create a new Attachment object that will store info for the attachment table in MySQL.
             $file->project_id = $this->current_project_id;  // Fetch the current project id and save it in the project_id column of the files table.
             $file->user_id = auth()->user()->id; // Fetch the authenticated users's id and save it to the user_id column of the files table.
-            $file->file_name = $this->attachment->getClientOriginalName(); // Save the original name of the file.
-            $file->file_path = $this->attachment; // Save the Amazon S3 address to file_path
+            $file->file_name = $fileName; // Save the original name of the file.
+            $file->file_path = Storage::disk('s3')->url($path); // Save the Amazon S3 address to file_path
             $file->save(); // Save instance onto the MySQL row.
+             
         }
         
-        
+
         $this->reset();
     }
 
