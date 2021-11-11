@@ -36,7 +36,7 @@ class ProjectForm extends Component
     public $attachment = [];  // Variable to save attachment / Required for attachment
     public $file_name; // Variable to save attachment / Required for attachment
     public $file; //Variable to save file / Required for attachment
-    public $current_project_id;
+    public $selected_project_id;
 
     
   
@@ -81,23 +81,35 @@ class ProjectForm extends Component
 
         $project->save(); 
         
-        // I created a variable to save the current project ID.  I used the current project id and saved it in the attachment table as project_id in the for loop below.
-        $this->current_project_id = $project->id;
+        // I created a variable to save the selected project ID.  I used the selected project id and saved it in the attachment table as project_id in the for loop below.
+        $this->selected_project_id = $project->id;
 
         // Store the uploaded attachments in the "attachments" directory of the default filesystem disk and S3
-        foreach ($this->attachments as $this->attachment) {
+        foreach ($this->attachments as $attachment) {
             
-            $fileName = $this->attachment->getClientOriginalName();
-            $path = $this->attachment->store('attachments', 's3'); // Save attachment on Amazon S3// Store in the "attachment" directory of the local-themischimney.com bucket.
-            $file = new Attachment(); // Create a new Attachment object that will store info for the attachment table in MySQL.
-            $file->project_id = $this->current_project_id;  // Fetch the current project id and save it in the project_id column of the files table.
-            $file->user_id = auth()->user()->id; // Fetch the authenticated users's id and save it to the user_id column of the files table.
-            $file->file_name = $fileName; // Save the original name of the file.
-            $file->file_path = Storage::disk('s3')->url($path); // Save the Amazon S3 address to file_path
-            $file->save(); // Save instance onto the MySQL row.
-             
+            
+            $fileName = date("Ymd-hi").'-'.$attachment->getClientOriginalName(); // Save the original name of the file along with a time stamp in a variable called fileName
+            
+            $path = $attachment->storeAs('attachments', strval($fileName), 's3-public'); // Save attachment on Amazon S3// Store in the "attachment" directory of the local-themischimney.com bucket with original file name.  The file name must be a string so I obtain the string value from the variable.
+            
+            $url = 'https://'.env('AWS_BUCKET_PUBLIC').'.s3.amazonaws.com/'.$path; // Put the URL together for the file just uploaded.
+
+            // Create an objec that will include the current parent component object and along with the fileName and $url
+            $fileRecord = new Attachment(); // Create a new Attachment object that will store info for the attachment table in MySQL.
+                $fileRecord->project_id = $this->selected_project_id;  // Fetch the selected project id and save it in the project_id column of the files table.
+                $fileRecord->user_id = auth()->user()->id; // Fetch the authenticated users's id and save it to the user_id column of the files table.
+                $fileRecord->file_name = $fileName; // Save the original name of the file.
+                $fileRecord->file_path = $url; // Save the Amazon S3 address to file_path
+            $fileRecord->save(); // Save instance onto the MySQL row.
+            
+            
         }
         
+        // The flash message below will generate successful if the validation and upload are both successful.
+        session()->flash('message', 'You successfully saved the file to the project.');
+            
+        // Emit to project edit to refresh the selected project.  
+        return redirect()->to('/projects');
 
         $this->reset();
     }

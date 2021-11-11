@@ -5293,6 +5293,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+window.Vapor = __webpack_require__(/*! laravel-vapor */ "./node_modules/laravel-vapor/dist/laravel-vapor.js");
 
 /***/ }),
 
@@ -5324,6 +5325,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vapor/dist/laravel-vapor.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/laravel-vapor/dist/laravel-vapor.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
+function e(){return(e=Object.assign||function(e){for(var r=1;r<arguments.length;r++){var t=arguments[r];for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n])}return e}).apply(this,arguments)}var r=__webpack_require__(/*! axios */ "./node_modules/axios/index.js"),t=process.env.MIX_VAPOR_ASSET_URL?process.env.MIX_VAPOR_ASSET_URL:"";module.exports=new(function(){function n(){}var o=n.prototype;return o.asset=function(e){return t+"/"+e},o.store=function(t,n){void 0===n&&(n={});try{return Promise.resolve(r.post(n.signedStorageUrl?n.signedStorageUrl:"/vapor/signed-storage-url",e({bucket:n.bucket||"",content_type:n.contentType||t.type,expires:n.expires||"",visibility:n.visibility||""},n.data),e({baseURL:n.baseURL||null,headers:n.headers||{}},n.options))).then(function(e){var o=e.data.headers;return"Host"in o&&delete o.Host,void 0===n.progress&&(n.progress=function(){}),Promise.resolve(r.put(e.data.url,t,{cancelToken:n.cancelToken||"",headers:o,onUploadProgress:function(e){n.progress(e.loaded/e.total)}})).then(function(){return e.data.extension=t.name.split(".").pop(),e.data})})}catch(e){return Promise.reject(e)}},n}());
+//# sourceMappingURL=laravel-vapor.js.map
+
 
 /***/ }),
 

@@ -10,7 +10,7 @@ class ProjectEdit extends Component
 {
 
     // Established the public variable needed to save data.
-    public $selected_id;
+    public $selected_project_id;
     public $selected_project;
     public $selected_status;
     public $selected_street;
@@ -22,12 +22,20 @@ class ProjectEdit extends Component
     // public $selected_email;
     // public $selected_website;
     public $selected_description;
+    public $showProjectCard;
 
     // Add a listener for the anchor tag listings on Form.
     // Each anchor tag should be clickable.  
     // The click will take them to the details card.
     // Execute the method in the brackets.
-    protected $listeners = ['showProjectCard'];
+    // protected $listeners = ['showProjectCard'];
+    protected function getListeners()
+    {
+        return [
+            'showProjectCard' => 'showProjectCard',
+            'attachmentsAdded' => '$refresh'
+        ];
+    }
 
     // *****SHOW PROJECT CARD UNDERNEATH project LIST*****
     // This function/method is responsible for displaying the individual project card.
@@ -39,7 +47,7 @@ class ProjectEdit extends Component
         $this->showprojectCardContainer = true;
 
         // Show project ID along with Header string.
-        $this->selected_id = $project->id;
+        $this->selected_project_id = $project->id;
         
         // Show project name along with header string.
         $this->selected_project = $project->project_name;
@@ -74,15 +82,14 @@ class ProjectEdit extends Component
         // Show project description
         $this->selected_description = $project->description;
 
-        // return $this->selected_id;
     }
-
   
     public function render()
     {
         return view('livewire.project-edit', [
             'attachments' => Attachment::all()
-            ->where('project_id', $this->selected_id)
+            ->where('project_id', $this->selected_project_id)
+            ->sortDesc()
         ]);
     }
 }
