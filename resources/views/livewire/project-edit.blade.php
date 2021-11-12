@@ -83,6 +83,53 @@
                     </dd>
                 </div>
 
+                <!-- Assign mechanics. -->
+                <livewire:assign-mechanics :selected_project_id="$selected_project_id" :wire:key="$selected_project_id"></livewire:assign-mechanics>
+
+                <!-- CREATE A LIST OF MECHANICS ASSIGNED TO THIS PROJECT. -->
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Mechanic
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+
+
+                        <!-- Beginningof Unordered List of Attachments -->
+                        <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
+
+                            <!-- 
+                                Attachment 1
+                                The 'For Loop' to display list of attachment should go here.
+                             -->
+                            @foreach($attachments as $attachment)
+                            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                                <div class="w-0 flex-1 flex items-center">
+
+                                    <!-- Heroicon name: solid/paper-clip -->
+                                    <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                                    </svg>
+
+                                    <!-- Name of File -->
+                                    <span class="ml-2 flex-1 w-0 truncate">
+                                        Mechanic
+                                    </span>
+                                </div>
+
+                                <!-- View File Link -->
+                                <div class="ml-4 flex-shrink-0">
+                                    <a href="{{ $attachment->file_path }}" class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">
+                                        View Profile
+                                    </a>
+                                </div>
+                            </li>
+                            @endforeach
+
+                        </ul>
+
+                    </dd>
+                </div>
+
                 <!-- Upload Project Uploader. -->
                 <livewire:upload-files :selected_project_id="$selected_project_id" :wire:key="$selected_project_id"></livewire:upload-files>
 
@@ -116,9 +163,7 @@
                                     </span>
                                 </div>
 
-                                <!-- 
-                                        The attachment file path is incorrect.  The temporary file path is being saved. I need to get the correct link from S3 so I can save it on the database and post a link.
-                                     -->
+                                <!-- View File Link -->
                                 <div class="ml-4 flex-shrink-0">
                                     <a href="{{ $attachment->file_path }}" class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">
                                         View File

@@ -15,15 +15,11 @@ class CreateTimesheetsTable extends Migration
     {
         Schema::create('timesheets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->unique();
-            $table->string('project');
-            $table->string('slug')->unique();
-            $table->date('date');
-            $table->string('city');
-            $table->string('timeIn');
-            $table->string('timeOut');
-            $table->string('hours');
-            $table->timestamps();
+            $table->foreignId('user_id')->unique();  // Used to track the user that inputs the time.
+            $table->foreignId('project_id'); // Used to track the project that the time is charged to.
+            $table->date('project_date'); // Used to track the date of the time entry.
+            $table->boolean('working'); // Used to see if user is on click or off the clock.
+            $table->timestamps(); // Timestamps can be used to see the Time created (clock in) and the time updated (clock out.)
         });
     }
 
