@@ -11,17 +11,17 @@
 
         <br>
         <br>
-        <x-jet-button wire:click="saveAttachments">Upload Documents</x-jet-button>      
+        <x-jet-button wire:click="saveAttachments">Upload Documents</x-jet-button>
 
         <div class="pt-2">
-        @if (session()->has('message'))
+            @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
             </div>
-        @endif
-    </div>
+            @endif
+        </div>
     </dd>
 
-    
+
 
 </div>
