@@ -85,4 +85,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Attachment::class);
     }
+
+    /**
+     * The projects that belong to the user.
+     */
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class)->withTimestamps();
+    }
 }
