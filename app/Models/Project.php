@@ -29,4 +29,12 @@ class Project extends Model
     {
         return $this->hasMany(Attachment::class);
     }
+
+    /**
+     * The users that belong to Projects.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }
