@@ -15,8 +15,8 @@ class CreateProjectUserTable extends Migration
     {
         Schema::create('project_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id'); // Created to track the project ids for the user
-            $table->foreignId('user_id'); // Created to track the user ids for the project.
+            $table->foreignId('project_id')->onDelete('cascade') ; // Created to track the project ids for the user
+            $table->foreignId('user_id')->onDelete('cascade') ; // Created to track the user ids for the project.
             $table->timestamps();
 
             $table->unique(['project_id', 'user_id']);
