@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Project;
 
+
 class AssignMechanics extends Component
 {
 
@@ -13,33 +14,36 @@ class AssignMechanics extends Component
     public $selected_project_id; // This varialble will store the selected project id
     public $selected_mechanic_id;  // This variable will save the id for the mechanic selected on the components drop down.
 
-
-
     /** 
      * Create a method an call it assignMechanicToThisProject
      * 
      */ 
     public function assignMechanicToThisProject() 
     {
+        $this->validate([
+
+            'selected_mechanic_id' => 'required'
+        ]); 
         
-        $this->selected_mechanic_id;
-        $this->selected_project_id;
+        if ($this->selected_project_id) {
+            $this->project = Project::find($this->selected_project_id);  // Find the selected project ID.
+            $this->project->users()->attach($this->selected_mechanic_id);  // Attach the user ID to the project 
+        }
+        else {
+            
+        }
 
-        // $assignment = new ProjectUser();
-        //     $assignment->project_id = $this->selected_project_id;
-        //     $assignment->user->id = $this->selected_mechanic_id;
-        // $assignment->save();
+        // The flash message below will generate successful if the validation and upload are both successful.
+        session()->flash('assignedMechanicSuccessMessage', 'Assignment Successful');
 
-        $project = Project::find($this->selected_project_id);  // Find the selected project ID.
-        $project->users()->attach($this->selected_mechanic_id);  // 
-
-        
+        // Emit up to parent component Project Edit to refresh the selected project.
+        $this->emitUp('assignedMechanic'); // Refresh the project card.
     }
 
     public function render()
     {
         return view('livewire.assign-mechanics', [
-            'users' => User::all()
+            'mechanics' => User::all(),
         ]);
     }
 }
