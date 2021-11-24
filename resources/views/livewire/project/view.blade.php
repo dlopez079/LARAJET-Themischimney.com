@@ -1,12 +1,12 @@
-<div>
+<div >
 
-    <div wire:model="showProjectCard" id="projectCard" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div wire:model="showProjectCard" id="projectCard">
 
         <div class="mt-6 text-gray-500 text-center pb-3">
             Select Client Above to display Details.
         </div>
 
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+        <div x-show="open" x-transition class="bg-white shadow overflow-hidden sm:rounded-lg">
 
             <!-- 
                 Project details
@@ -35,35 +35,35 @@
                         </dd>
                     </div>
 
-                    <!-- Primary Contractor NOT BEING USED RIGHT NOW -->
-                    <!-- <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    Primary Contractor
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    << Project -> Primary Contractor >>
-                </dd>
-            </div> -->
+                    <!-- Primary Contractor -->
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Primary Contractor
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            << Project -> Primary Contractor >>
+                        </dd>
+                    </div>
 
                     <!-- Genearl Contractor NOT BEING USED RIGHT NOW-->
-                    <!-- <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    General Contractor
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    << Project -> General Contractor >>
-                </dd>
-            </div> -->
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            General Contractor
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            << Project -> General Contractor >>
+                        </dd>
+                    </div>
 
                     <!-- Client NOT BEING USED RIGHT NOW-->
-                    <!-- <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">
-                    Client
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    << Project -> client >>
-                </dd>
-            </div> -->
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Client
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            << Project -> client >>
+                        </dd>
+                    </div>
 
                     <!-- Project Site -->
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -85,11 +85,6 @@
                         </dd>
                     </div>
 
-                    <!-- Assign Mechanics. -->
-                    <div>
-                        <livewire:assign-mechanics :selected_project_id="$selected_project_id" :wire:key="$selected_project_id"></livewire:assign-mechanics>
-                    </div>
-
                     <!-- Mechanic L. -->
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
@@ -109,11 +104,6 @@
                             </ul>
 
                         </dd>
-                    </div>
-
-                    <div>
-                        <!-- File Uploader. -->
-                        <livewire:upload-files :selected_project_id="$selected_project_id" :wire:key="$selected_project_id"></livewire:upload-files>
                     </div>
 
                     <!-- File Attachments Listing -->
