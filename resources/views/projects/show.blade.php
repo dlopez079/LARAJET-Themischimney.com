@@ -7,10 +7,20 @@
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:project-form></livewire:project-form>
+
+            <!-- Render the Livewire project show component -->
+            <livewire:project.show />
+            
         </div>
 
-        <livewire:project-edit></livewire:project-edit>
-        
+        <div>
+
+            <!-- Render the Livewire project edit component -->
+            <livewire:project.view />
+        </div>
+
+        <!-- Rend the New Project Enter Form Modal -->
+        <livewire:project.create />
+       
     </div>
 </x-app-layout>

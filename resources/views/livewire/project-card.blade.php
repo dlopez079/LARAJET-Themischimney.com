@@ -1,5 +1,5 @@
 <!-- 
-    Project Edit Card
+    Project details
     This card will display underneath the project list.
 -->
 <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
