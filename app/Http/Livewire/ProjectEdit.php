@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Project;
 use App\Models\Attachment;
+use App\Models\User;
+
 
 class ProjectEdit extends Component
 {
@@ -22,7 +24,7 @@ class ProjectEdit extends Component
     // public $selected_email;
     // public $selected_website;
     public $selected_description;
-    public $showProjectCard;
+    public $showProjectCard; 
 
     // Add a listener for the anchor tag listings on Form.
     // Each anchor tag should be clickable.  
@@ -33,7 +35,8 @@ class ProjectEdit extends Component
     {
         return [
             'showProjectCard' => 'showProjectCard',
-            'attachmentsAdded' => '$refresh'
+            'attachmentsAdded' => '$refresh',
+            'assignedMechanic' => '$refresh'
         ];
     }
 
@@ -70,15 +73,6 @@ class ProjectEdit extends Component
         // Show project zip
         $this->selected_zip = $project->zip;
 
-        // Show project email NOT BEING USED NOW
-        // $this->selected_email = $project->email;
-
-        // Show project Telephone NOT BEING USED NOW
-        // $this->selected_phone = $project->phone;
-
-        // Show project website NOT BEING USED NOW
-        // $this->selected_website = $project->website;
-
         // Show project description
         $this->selected_description = $project->description;
 
@@ -86,10 +80,25 @@ class ProjectEdit extends Component
   
     public function render()
     {
-        return view('livewire.project-edit', [
+        $project = Project::find(1);
+        $user = User::find(1);
+
+        return view('livewire.project-edit', [ 
+            'project' => $project,
+            'user' => $user,
             'attachments' => Attachment::all()
-            ->where('project_id', $this->selected_project_id)
-            ->sortDesc()
+                ->where('project_id', $this->selected_project_id)
+                ->sortDesc(),
+
         ]);
+
+        // return view('livewire.project-edit', [
+        //     'attachments' => Attachment::all()
+        //     ->where('project_id', $this->selected_project_id)
+        //     ->sortDesc(),
+        //     'assignedMechanics' => User::all()
+        //     ->where('project_id', $this->selected_project_id)
+        //     ->sortDesc()
+        // ]);
     }
 }
