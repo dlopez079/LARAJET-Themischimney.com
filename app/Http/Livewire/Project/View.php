@@ -5,14 +5,14 @@ namespace App\Http\Livewire\Project;
 use Livewire\Component;
 use App\Models\Project;
 use App\Models\Attachment;
+use App\Models\Team;
 use App\Models\User;
 
 class View extends Component
 {
 
     public $project_name;
-    public $general_contractor;
-    // public $client;
+    
     public $street;
     public $city;
     public $state;
@@ -21,13 +21,7 @@ class View extends Component
     public $status;
     public $user_id;
     public $project;
-    public $showModalForm = false;
     public $slug;
-    public $attachments = [];  // Array Variable to save attachments that are uploaded from form    
-    public $attachment = [];  // Variable to save attachment / Required for attachment
-    public $file_name; // Variable to save attachment / Required for attachment
-    public $file; //Variable to save file / Required for attachment
- 
     public $selected_project;
     public $selected_project_id;
     public $selected_status;
@@ -35,12 +29,10 @@ class View extends Component
     public $selected_city;
     public $selected_state;
     public $selected_zip;
-    // public $selected_contact;
-    // public $selected_phone;
-    // public $selected_email;
-    // public $selected_website;
     public $selected_description;
-    public $showProjectCard; 
+    public $selected_primary_contractor;
+    public $selected_general_contractor;
+    public $selected_client;
 
     // Add a listener for the anchor tag listings on Form.
     // Each anchor tag should be clickable.  
@@ -70,8 +62,14 @@ class View extends Component
         // Show project status
         $this->selected_status = $project->status;
 
-        // Show project contact NOT BEING USED NOW
-        // $this->selected_contact = $project->contact;
+        // Show project $primary_contractor
+        $this->selected_primary_contractor = $project->prime_id;
+
+        // Show project $general_contractor
+        $this->selected_general_contractor = $project->general_contractor_id;
+
+        // Show project client
+        $this->selected_client = $project->client_id;
 
         // Show project street
         $this->selected_street = $project->street.",";
@@ -93,14 +91,12 @@ class View extends Component
     public function render()
     {
 
-
         return view('livewire.project.view', 
         [ 
-
             'attachments' => Attachment::all()
                 ->where('project_id', $this->selected_project_id)
                 ->sortDesc(),
-
         ]);
+
     }
 }

@@ -84,8 +84,6 @@ class ProjectEdit extends Component
         $user = User::find(1);
 
         return view('livewire.project-edit', [ 
-            'project' => $project,
-            'user' => $user,
             'attachments' => Attachment::all()
                 ->where('project_id', $this->selected_project_id)
                 ->sortDesc(),
