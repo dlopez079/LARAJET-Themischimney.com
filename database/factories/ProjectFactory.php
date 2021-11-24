@@ -22,7 +22,13 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // Project fields
+            // 'street' => $this->faker->unique()->streetAddress(),
+            // 'floor' => $this->faker->randomDigitNotNull(),
+            // 'room' => $this->faker->secondaryAddress(), //secondaryAddress(), ex. 'Suite 961'
+            // 'city' => $this->faker->citySuffix(), //citySuffix() ex.'borough'
+            // 'st' => $this->faker->stateAbbr(), //stateAbbr() ex.'OH'
+            // 'zip' => $this->faker->postcode(), //postcode() ex.'17916'
         ];
     }
 }

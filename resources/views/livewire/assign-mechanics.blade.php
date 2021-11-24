@@ -9,27 +9,26 @@
         <select wire:model.lazy="selected_mechanic_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="mechanic" name="mechanic">
             <option value="" selected>Select mechanic</option>
 
-            @foreach ($users as $user)
-            <option value="{{$user->id}} ">{{$user->name}}</option>
+            @foreach ($mechanics as $mechanic)
+            <option value="{{ $mechanic->id }}">{{$mechanic->name}}</option>
             @endforeach
 
         </select>
         @error('mechanic') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
         <br>
         <br>
-        <div>
-            <x-jet-button wire:click="assignMechanicToThisProject">Assign Mechanic</x-jet-button>
-        </div>
-
+        <x-jet-button wire:click="assignMechanicToThisProject">Add Mechanic(s)</x-jet-button> 
         <div class="pt-2">
-            @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
+            @if (session()->has('assignedMechanicSuccessMessage'))
+                <div class="alert alert-success">
+                    {{ session('assignedMechanicSuccessMessage') }}
+                </div>
+            @else (session()->has('noProjectSelected'))
+                <div class="alert alert-failed">
+                    {{ session('noProjectSelected') }}
+                </div>
             @endif
-        </div>
+        </div>      
     </dd>
-
-
 
 </div>
