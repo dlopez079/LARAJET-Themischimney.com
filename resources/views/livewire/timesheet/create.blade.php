@@ -1,6 +1,6 @@
 <div>
     <!-- Modal Form for timesheet Entry ------------------------------------------------------------------------------------------------>
-    <x-jet-dialog-modal wire:model="showModalForm">
+    <x-jet-dialog-modal wire:model="showTimesheetModal">
 
         <!-- Modal Header -->
         <x-slot name="title">Create Timesheet</x-slot>
@@ -72,7 +72,7 @@
             </form>
         </x-slot>
 
-    <!-- Modal Footer -->
+        <!-- Modal Footer -->
         <x-slot name="footer">
             <x-jet-button wire:click="storeTimesheet">Save timesheet</x-jet-button>
         </x-slot>
