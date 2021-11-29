@@ -99,4 +99,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Project::class, 'project_user')->withTimestamps();
     }
+
+    /**
+     * Get the timesheets for the User.
+     * QUERY:  SELECT * FROM Timesheet WHERE user_id = the selected id.
+     * Timesheet Table must have a column of 'user_id'. 
+     */
+    public function timesheets()
+    {
+        return $this->hasMany(Timesheet::class);
+    }
 }
