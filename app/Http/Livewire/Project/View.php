@@ -5,8 +5,11 @@ namespace App\Http\Livewire\Project;
 use Livewire\Component;
 use App\Models\Project;
 use App\Models\Attachment;
+use App\Models\ProjectUser;
 use App\Models\Team;
 use App\Models\User;
+use Brick\Math\BigInteger;
+use App\Http\Livewire\Project\users;
 
 class View extends Component
 {
@@ -33,6 +36,7 @@ class View extends Component
     public $selected_primary_contractor;
     public $selected_general_contractor;
     public $selected_client;
+    public $assignedMechanics;
 
     // Add a listener for the anchor tag listings on Form.
     // Each anchor tag should be clickable.  
@@ -42,14 +46,13 @@ class View extends Component
     protected function getListeners()
     {
         return [
-            'showProjectCard' => 'showProjectCard',
-            'attachmentsAdded' => '$refresh',
-            'assignedMechanic' => '$refresh'
+            'showProjectCard' => 'showProjectCard', // A listener for on-click on project.show blade.
+            'refreshProjectView' => '$refresh' // A listener for on-click on uploadfiles blade.
         ];
     }
     
-    public function showProjectCard(Project $project) {
-
+    public function showProjectCard(Project $project) 
+    {
         // Show project Card
         $this->showprojectCardContainer = true;
 
@@ -86,16 +89,22 @@ class View extends Component
         // Show project description
         $this->selected_description = $project->description;
 
+        //Show assigned mechanics
+        if($project->users) {
+            $this->assignedMechanics = $project->users->pluck('name');
+        } 
+        
     }
 
     public function render()
     {
 
-        return view('livewire.project.view', 
+        return view('livewire.project.view',
         [ 
+            // 'assignedMechanics' => $this->assignedMechanics,
             'attachments' => Attachment::all()
                 ->where('project_id', $this->selected_project_id)
-                ->sortDesc(),
+                ->sortDesc()
         ]);
 
     }

@@ -20,8 +20,24 @@ class UploadFiles extends Component
     public $fileNameArr = []; // Required to save mutliple file names retrieved from the upload form.
     public $fileName;  // Required to save file names from the
     public $selected_project_id;
+    public $uploadFilesModal = false;
     
- 
+    protected function getListeners()
+    {
+        return [
+            'showUploadFilesModal' => 'showUploadFilesModal',
+        ];
+    }
+
+    public function showUploadFilesModal(Project $project) 
+    {
+        // Change the public variable showModelForm from false to true because you are going from not showing the modal to showing it. 
+        $this->uploadFilesModal = true;
+
+        // Accepted emitted project ID from the project view component and save it to a variable on this component.
+        $this->selected_project_id = $project->id;
+    }
+
     /**
      * Created a method called 'save'.
      * The instructions from this method will begin when the upload Documents button is clicked on the form.
@@ -57,9 +73,10 @@ class UploadFiles extends Component
         
         // The flash message below will generate successful if the validation and upload are both successful.
         session()->flash('message', 'You successfully saved the file to the project.');
+
+        $this->emit('showProjectCard', $this->selected_project_id);
         
-        // Emit up to parent component Project Edit to refresh the selected project.
-        $this->emitUp('attachmentsAdded');
+        $this->reset();
     }
 
 

@@ -21,7 +21,7 @@
                             Project Number
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $selected_project_id}}
+                            {{ $selected_project_id }}
                         </dd>
                     </div>
 
@@ -45,7 +45,7 @@
                         </dd>
                     </div>
 
-                    <!-- Genearl Contractor NOT BEING USED RIGHT NOW-->
+                    <!-- Genearl Contractor -->
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
                             General Contractor
@@ -55,7 +55,7 @@
                         </dd>
                     </div>
 
-                    <!-- Client NOT BEING USED RIGHT NOW-->
+                    <!-- Client -->
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
                             Client
@@ -85,8 +85,51 @@
                         </dd>
                     </div>
 
-                    <!-- COPY ATTACHMENTS:Assigned Mechanic Listing. -->
+                    <!-- Assigned Mechanic Listing. -->
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Assigned Mechanics
+                        </dt>
 
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+
+                            <!-- Beginning of Unordered List of Assigned Mechanics -->
+                            <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
+                                <li class="pl-3 pr-4 py-3 flex items-center text-sm">
+                                    <!-- View Button to assign mechanic -->
+                                    <div>
+                                        <x-jet-button wire:click="$emit('showAssignMechanicsModal', {{ $selected_project_id }} )">
+                                            Assign Mechanic {{ $selected_project_id }}
+                                        </x-jet-button>
+                                    </div>    
+                                </li>
+                                
+                                @if ( $assignedMechanics )
+                                    @foreach ( $assignedMechanics as $assignedMechanic )
+                                    <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+
+                                        <div class="w-0 flex-1 flex items-center">
+
+                                            <!-- Name of User -->
+                                            <span class="ml-2 flex-1 w-0 truncate">
+                                                {{ $assignedMechanic }}
+                                            </span>
+                                        </div>
+
+                                        <!-- View File Link -->
+                                        <div class="ml-4 flex-shrink-0">
+                                            <a class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">
+                                                View Profile
+                                            </a>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                @endif 
+
+                            </ul>
+
+                        </dd>
+                    </div>
                     <!-- File Attachments Listing -->
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
@@ -97,25 +140,37 @@
 
                             <!-- Beginningof Unordered List of Attachments -->
                             <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
-                                @foreach ($attachments as $attachment )
-                                <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
 
-                                    <div class="w-0 flex-1 flex items-center">
-
-                                        <!-- Name of File -->
-                                        <span class="ml-2 flex-1 w-0 truncate">
-                                            {{ $attachment->file_name }}
-                                        </span>
-                                    </div>
-
-                                    <!-- View File Link -->
-                                    <div class="ml-4 flex-shrink-0">
-                                        <a href="{{ $attachment->file_path }}" class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">
-                                            View File
-                                        </a>
-                                    </div>
+                                <li class="pl-3 pr-4 py-3 flex items-center text-sm">
+                                    <!-- View Button to attach file -->
+                                    <div>
+                                        <x-jet-button wire:click="$emit('showUploadFilesModal', {{ $selected_project_id }} )">
+                                            Attach File {{ $selected_project_id }}
+                                        </x-jet-button>
+                                    </div>    
                                 </li>
-                                @endforeach
+
+                                @if ( $attachments )
+                                    @foreach ($attachments as $attachment )
+                                    <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+
+                                        <div class="w-0 flex-1 flex items-center">
+
+                                            <!-- Name of File -->
+                                            <span class="ml-2 flex-1 w-0 truncate">
+                                                {{ $attachment->file_name }}
+                                            </span>
+                                        </div>
+
+                                        <!-- View File Link -->
+                                        <div class="ml-4 flex-shrink-0">
+                                            <a href="{{ $attachment->file_path }}" class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">
+                                                View File
+                                            </a>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                @endif
 
                             </ul>
 

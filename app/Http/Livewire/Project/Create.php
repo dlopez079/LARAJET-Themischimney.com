@@ -26,7 +26,6 @@ class Create extends Component
     public $zip;
     public $description;
     public $status;
-    public $user_id;
     public $project;
     public $showModalForm = false;
     public $slug;
@@ -43,15 +42,16 @@ class Create extends Component
         ];
     }
 
-    public function showCreateProjectModal() {
-        
+    public function showCreateProjectModal() 
+    {      
         // Change the public variable showModelForm from false to true because you are going from not showing the modal to showing it. 
         $this->showModalForm = true;
 
     }
 
      // Create a method for storeProject for the Create Project Modal
-     public function storeProject() {
+     public function storeProject() 
+    {
 
         // Gather information from the Create Project Modal and enter it into MySql.
         $this->validate([
@@ -71,8 +71,8 @@ class Create extends Component
         
         // Creata a new Project object and save information for MySQl
         $project =new Project();
-        $project->user_id = auth()->user()->id;
         $project->project_name = $this->project_name;
+        
         $project->slug = $this->slug;
         $project->client_id = $this->client;
         $project->prime_id = $this->primary_contractor;
@@ -86,6 +86,12 @@ class Create extends Component
 
         $project->save(); 
         
+        // If the project successfully saves, begin the relationship.
+        // Lets get the creator of the project on the pivot table.
+        if ($project->save()) {
+            $user_id = auth()->user()->id;
+            $project->users()->sync($user_id);
+        }
         // I created a variable to save the selected project ID.  I used the selected project id and saved it in the attachment table as project_id in the for loop below.
         $this->selected_project_id = $project->id;
 

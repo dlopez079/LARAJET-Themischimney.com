@@ -72,6 +72,8 @@ class User extends Authenticatable
 
     /**
      * Get the comments from the user.
+     * QUERY: SELECT * from Attachment WHERE user_id = the selected id.
+     * Comment Table must have a column of 'user_id'. 
      */
     public function comments()
     {
@@ -80,17 +82,21 @@ class User extends Authenticatable
 
     /**
      * Get the attachments for the User.
+     * QUERY:  SELECT * FROM Attachment WHERE user_id = the selected id.
+     * Attachment Table must have a column of 'user_id'. 
      */
     public function attachments()
     {
-        return $this->hasMany(Attachment::class);
+        return $this->hasMany(Attachment::class); 
     }
 
     /**
-     * The projects that belong to the user.
+     * The project that belong to the user.
+     * The name of this method 'project' will be searched using 'project_id'
+     * QUERY: SELECT * FROM Project WHERE project_id = the selected id.
      */
     public function projects()
     {
-        return $this->belongsToMany(Project::class)->withTimestamps();
+        return $this->belongsToMany(Project::class, 'project_user')->withTimestamps();
     }
 }

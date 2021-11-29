@@ -1,25 +1,26 @@
-<div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+<div>
 
-    <dt class="text-sm font-medium text-gray-500">
-        Project {{ $selected_project_id }} Uploader
-    </dt>
+    <x-jet-dialog-modal wire:model="uploadFilesModal">
 
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-        <input type="file" wire:model="files" multiple>
+        <!-- Modal Header -->
+        <x-slot name="title">Upload files to Project #: {{ $selected_project_id }}</x-slot>
 
-        @error('files.*') <span class="error">{{ $message }}</span> @enderror
+        <!-- Modal Content -->
+        <x-slot name="content">
+            <form class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                @csrf
+                <div class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <input type="file" wire:model="files" multiple>
+                    @error('files.*') <span class="error">{{ $message }}</span> @enderror
+                </div>
+            </form>
+        </x-slot>
 
-        <br>
-        <br>
-        <x-jet-button wire:click="saveAttachments">Upload Documents</x-jet-button>
+        <!-- Modal Footer -->
+        <x-slot name="footer">
+            <x-jet-button wire:click.prevent="saveAttachments">Upload File(s)</x-jet-button>
+        </x-slot>
 
-        <div class="pt-2">
-            @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-            @endif
-        </div>
-    </dd>
+    </x-jet-dialog-modal>
 
 </div>

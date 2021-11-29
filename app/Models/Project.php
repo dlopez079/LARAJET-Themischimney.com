@@ -24,6 +24,8 @@ class Project extends Model
 
     /**
      * Get the attachments for the Project.
+     * QUERY:  SELECT * FROM Attachment WHERE project_id = the selected id.
+     * Attachment Table must have a column of 'project_id'.
      */
     public function attachments()
     {
@@ -32,9 +34,11 @@ class Project extends Model
 
     /**
      * The users that belong to Projects.
+     * The name of this method 'user' will be searched using 'user_id'
+     * QUERY: SELECT * FROM Project WHERE user_id = the selected id.
      */
     public function users()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class, 'project_user')->withTimestamps();
     }
 }

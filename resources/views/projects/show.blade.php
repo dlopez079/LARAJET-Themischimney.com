@@ -15,12 +15,20 @@
             <livewire:project.show />
 
             <!-- Render the Livewire project edit component -->
-            <livewire:project.view />
+            <livewire:project.view />         
         </div>
 
 
         <!-- Rend the New Project Enter Form Modal -->
         <livewire:project.create />
+
+        <!-- Render the Livewire project assignMechanics component -->
+        <livewire:assign-mechanics />
+
+        <!-- Render the Livewire project upload-files component -->
+        <livewire:upload-files />
+
+
 
     </div>
 </x-app-layout>
