@@ -13,58 +13,31 @@
 
                 <div class="flex flex-wrap -mx-3 mb-2">
 
-                    <!-- timesheet Name Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-date">
-                            Date
-                        </label>
-                        <input wire:model.lazy="date" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-date" name="grid-date" type="date" placeholder="Enter Date">
-                    </div>
-
-                    <!-- Project Field -->
-                    <!-- This project field must link to the projects table.  
-                    1. () Create a drop down that will list the projects entered on the table. 
-                    2. () Create an if statement that will display an extra field that will list the tasks table. 
-                          Once a user selects a project, a drop down appears right after which will list the tasks assosiated with that project. -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-project">
-                            Project
-                        </label>
-                        <input wire:model.lazy="project" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-project" name="grid-project" type="text" placeholder="Enter Project">
-                    </div>
                     
-                    <!-- City Field -->
-                    <!-- The City Field should populate on it's own according to the project.  I will remove this once I link the project table. 
-                    1. () Remove this field when project table is linked. -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-                            City
-                        </label>
-                        <input wire:model.lazy="city" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" name="grid-city" type="text" placeholder="Enter city">
-                    </div>
+                <div class="w-full px-5 mb-6">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="activeProjects"></label>
+                    <select wire:model.lazy="activeProjects" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="activeProjects" name="activeProjects">
+                        <option value="" selected>Select Active Project</option>
 
+                        @foreach ($projects as $project)
+                        <option value="{{ $project->id }}">{{$project->project_name}}</option>
+                        @endforeach
+
+                    </select>
+                    @error('activeProjects') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
+                </div>
+            </form>
+            
+                    /**
+                        Create a button. 
+                           
+                    */
                     <!-- Time In Field -->
                     <div class="w-full px-5 mb-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                            Time In
+                            Time
                         </label>
                         <input wire:model.lazy="timeIn" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-timeIn" name="grid-timeIn" type="time" placeholder="Time In">
-                    </div>
-
-                    <!-- Time Out Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-timeOut">
-                            Time Out
-                        </label>
-                        <input wire:model.lazy="timeOut" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-timeOut" name="grid-timeOut" type="time" placeholder="Time Out">
-                    </div>
-
-                    <!-- Hours Field -->
-                    <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-hours">
-                            Hours
-                        </label>
-                        <input wire:model.lazy="hours" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-hours" name="grid-hours" type="number" placeholder="Enter Hours">
                     </div>
 
                 </div>
