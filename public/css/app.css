@@ -1297,6 +1297,9 @@ select {
 .h-20 {
 	height: 5rem;
 }
+.h-screen {
+	height: 100vh;
+}
 .h-1\/2 {
 	height: 50%;
 }
@@ -2230,6 +2233,9 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(99, 102, 241, var(--tw-text-opacity));
 }
+.hover\:opacity-75:hover {
+	opacity: 0.75;
+}
 .focus\:z-10:focus {
 	z-index: 10;
 }
@@ -2518,12 +2524,12 @@ select {
 		transform: var(--tw-transform);
 	}
 
-	.sm\:grid-cols-2 {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
 	.sm\:grid-cols-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.sm\:grid-cols-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.sm\:items-start {

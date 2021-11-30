@@ -4,11 +4,15 @@ namespace App\Http\Livewire\Timesheet;
 
 use Livewire\Component;
 use App\Models\Project;
+use App\Models\User;
 
 class Create extends Component
 {
 
     public $showTimesheetModal = false;
+    public $activeProjectSelected;
+    public $buttonStatus;
+    public $currentUser;  // variable used to capture the status of the button.
 
     /**
      * Create listeners for other components.
@@ -29,18 +33,8 @@ class Create extends Component
         $this->showTimesheetModal = true;
     }
 
-    // Display Active projects
-    public function activeProjects(Project $project)
-    {
-
-    }
-
-    public function assignedMechanics(Project $project) 
-    {
-        //Show assigned mechanics
-        if($project->users) {
-            $this->assignedMechanics = $project->users->pluck('name');
-        } 
+    public function timeRecordBtn() {
+        
         
     }
         /** On-Click first click, this button will 
@@ -58,9 +52,12 @@ class Create extends Component
 
     public function render()
     {
+        // I saved the current user signed in to a variable.
+        $currentUserId =auth()->user()->id;
+
+        // I returned to the view all the project that the user is assigned to. 
         return view('livewire.timesheet.create', [
-            'projects' => Project::all()
-                ->where('status', 'Active')
+            'user' => User::find($currentUserId)
         ]);
     }
 }

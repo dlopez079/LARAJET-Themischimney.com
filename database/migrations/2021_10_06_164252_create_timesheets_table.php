@@ -20,6 +20,7 @@ class CreateTimesheetsTable extends Migration
             $table->date('date'); // Used to track the date of the time entry.
             $table->time('time_from'); // Used to see when user clocks in
             $table->time('time_to');  // Used to see when user clocks out.
+            $table->boolean('isWorking'); // Use to see if user is actively working.
             $table->date('date_submitted'); //Used to see when user submitted time.
             $table->timestamps(); // Timestamps can be used to see the Time created (clock in) and the time updated (clock out.)
         });
