@@ -7,12 +7,10 @@
 
         <!-- Modal Content -->
         <x-slot name="content">
-            <!-- Form -->
             <form class="w-full">
                 @csrf
 
                 <div class="flex flex-wrap -mx-3 mb-2">
-
                     <div class="w-full px-5 mb-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="activeProjects"></label>
 
@@ -20,44 +18,62 @@
 
                             <option value="" selected>Select Active Project</option>
 
-                            <!-- Listof projects that the user is assigned to. -->
-                            @foreach ($user->projects as $project)
-                                <option value="{{ $project->id }}">{{$project->project_name}}</option>
-                            @endforeach 
-
+                            <!-- 
+                                Listof projects that the user is assigned to.
+                                Prepare a for each statement that will loop through the users' assigned projects
+                                If the project is active, list the active project the user is assigned to.  
+                            -->
+                            @foreach($user->projects as $project)
+                                @if($project->status == 'Active')
+                                    <option value="{{ $project->id }}">{{ $project->project_name }}</option>
+                                @endif
+                            @endforeach
                         </select>
-                        @error('activeProjectSelected') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
+                        @error('activeProjectSelected')
+                            <span class="error text-red-700 font-bold">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!--
-                    Create a button for Clock in and Clock out.
-
+                        Create a Summary of the project.
                     -->
-                    <div class="w-full px-5 mb-6 text-center bg-red">
-                            <p> {{ $activeProjectSelected }} </p>
-                        @if($user->projects = $activeProjectSelected )
-                        <div class="bg-green-400">
-                            <x-jet-button wire:click="timeRecordBtn" >
-                                <span value="0"> {{ $btnStatus ?? 'Clock In' }} </span>
-                            </x-jet-button>
-                        </div>    
-                        
+                    <div class="w-full px-5 mb-6">
+                        @if($activeProjectSelected)
+                            <p>
+                               <b>Project #:</b> {{ $project->id }}
+                            </p>
+                            <p>
+                               <b>Site:</b> {{ $project->street }}
+                            </p>
+                            <p>
+                               <b>Borough:</b> {{ $project->city }}
+                            </p>
                         @else
-                        <p>Please select your assigned project.</p>
+                            <p>Please select your assigned project.</p>
                         @endif
                     </div>
+                </div>             
+            </form>
+
+
+        </x-slot>
+
+        <!-- Modal Footer -->
+        <x-slot name="footer">
+            <div x-data="{ show: false }">
+                <div 
+                    x-show="show" 
+                    >
+                        
                 </div>
+                <x-jet-button 
+                        @click="show = !show"
+                        x-text="show ? 'Clock In' : 'Clock Out' "
+                        >
+                        Clock In
+                </x-jet-button>
+            </div>
+        </x-slot>
 
-
-</div>
-
-</form>
-</x-slot>
-
-<!-- Modal Footer -->
-<x-slot name="footer">
-    <x-jet-button wire:click="storeTimesheet">Save timesheet</x-jet-button>
-</x-slot>
-
-</x-jet-dialog-modal>
-</div>
+    </x-jet-dialog-modal>
+</div>  

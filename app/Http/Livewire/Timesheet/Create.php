@@ -5,14 +5,16 @@ namespace App\Http\Livewire\Timesheet;
 use Livewire\Component;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Timesheet;
 
 class Create extends Component
 {
 
     public $showTimesheetModal = false;
     public $activeProjectSelected;
-    public $buttonStatus;
-    public $currentUser;  // variable used to capture the status of the button.
+    public $btnStatus = "Clock In";
+    
+    public $currentUserId;
 
     /**
      * Create listeners for other components.
@@ -33,23 +35,46 @@ class Create extends Component
         $this->showTimesheetModal = true;
     }
 
-    public function timeRecordBtn() {
-        
-        
-    }
-        /** On-Click first click, this button will 
-         * () 1. Turn Green Button to Red Color/Turn text from Start Time to stop time
-         * () 2. Make Boolean True on isActive.
-         * () 3. Generate the date that button is pressed.
-         * () 4. Generate the timeFrom that button is pressed.
-         * On Second click, this button will
-         * () 1. Turn Red Button to Green color/ Turn text from Stop Time to Start Time
-         * () 2. Make Boolean False on isActive.
-         * () 3. Generate the timeTo that button is pressed.
-        */
-         
+    public function storeTimesheet($isWorking) 
+    {  
+        // I saved the current user signed in to a variable.
+        $isWorking = 0;
+        $this->currentUserId =auth()->user()->id;
+        $date = date('mmddyy');
+        $time = time();
         
 
+        // User is working if value is 1.
+        if( boolval($isWorking) == 0 )
+        {
+            
+            $timesheet =new Timesheet();
+            $timesheet->user_id = $this->currentUserId; // Used to track the user that inputs the time.
+            $timesheet->project_id = $this->activeProjectSelected;  // Used to track the project that the time is charged to.
+            $timesheet->date = $date; // Used to track the date of the time entry.
+            $timesheet->time_from = $time; // Used to see when user clocks in
+            $timesheet->isWorking = $isWorking; // Use to see if user is actively working.
+           
+            // Change the value from Clock In to Clock Out
+            $this->btnStatus = 'Clock Out'; 
+            
+        } 
+        
+        elseif( boolval($isWorking) == 1 )
+        {
+
+            // $this->currentUserId->timesheets->where('isworking', 1)->update('time_to', $time);
+            
+            // $this->currentUserId->timesheets->where('isworking', 1)->update('isWorking', 0);
+
+            $this->btnStatus = 'Clock In';
+
+            $value = 0;
+        }
+        
+    }
+        
+        
     public function render()
     {
         // I saved the current user signed in to a variable.
@@ -57,7 +82,8 @@ class Create extends Component
 
         // I returned to the view all the project that the user is assigned to. 
         return view('livewire.timesheet.create', [
-            'user' => User::find($currentUserId)
+            'user' => User::find($currentUserId),
+            'projects' => $this->activeProjectSelected
         ]);
     }
 }

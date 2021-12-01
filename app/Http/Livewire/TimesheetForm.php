@@ -45,9 +45,8 @@ class TimesheetForm extends Component
         $timesheet =new timesheet();
         $timesheet->user_id = auth()->user()->id;
         $timesheet->project_id = $this->project_id;
-        $timesheet->date = $this->date;
-        $timesheet->time_from = $this->timeFrom;
-        $timesheet->time_to = $this->timeTo;
+        $timesheet->date = $this->date();
+        $timesheet->time_from = $this->time();
         $timesheet->date_submitted = $this->dateSubmitted;
   
         $timesheet->save();
