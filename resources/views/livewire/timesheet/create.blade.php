@@ -59,21 +59,26 @@
         </x-slot>
 
         <!-- Modal Footer -->
+        
         <x-slot name="footer">
-            <div x-data="{ show: false }">
+            @if($activeProjectSelected)
                 <div 
-                    x-show="show" 
-                    >
-                        
-                </div>
-                <x-jet-button 
-                        @click="show = !show"
-                        x-text="show ? 'Clock In' : 'Clock Out' "
+                    class="text-center"
+                    x-data="{ show: false }">
+                    <div 
+                        x-show="show" 
                         >
-                        Clock In
-                </x-jet-button>
-            </div>
+                    </div>
+                        
+                        <x-jet-button 
+                            @click="show = !show"
+                            x-text="show ? 'Clock Out' : 'Clock In' "
+                            >
+                        </x-jet-button>
+                </div>
+            @endif
         </x-slot>
+        
 
     </x-jet-dialog-modal>
 </div>  
