@@ -33,6 +33,11 @@
                         {{ __('Timesheets') }}
                     </x-jet-nav-link>
 
+                    {{-- Contacts Navigation Dropdown in a link --}}
+                    <x-jet-nav-link href="{{ route('contacts') }}" :active="request()->routeIs('contacts')">
+                        {{ __('Contacts') }}
+                    </x-jet-nav-link>
+
                 </div>
 
 
@@ -40,10 +45,6 @@
 
             {{-- Right Navigation Bar --}}
             <div class="hidden md:flex sm:items-center sm:ml-6">
-
-                {{-- Client/Contractors Navigation Dropown Link --}}
-                <livewire:client-contractor-dropdown></livewire:client-contractor-dropdown>
-
 
                 <!-- Teams Dropdown Menu -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -199,8 +200,8 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
-                {{ __('Clients') }}
+            <x-jet-responsive-nav-link href="{{ route('contacts') }}" :active="request()->routeIs('contacts')">
+                {{ __('Contacts') }}
             </x-jet-responsive-nav-link>
         </div>
 
