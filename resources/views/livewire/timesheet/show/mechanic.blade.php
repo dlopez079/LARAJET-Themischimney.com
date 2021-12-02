@@ -1,32 +1,96 @@
 <div>
     <!-- Project Buttons -->
     <div class="text-center p-3 mx-auto">
-   
+
         <x-jet-button wire:click="$emit('showCreateTimesheetModal')">
             New Timesheet
         </x-jet-button>
     </div>
     <!-- timesheet Card: We will insert for each statement here. ----------------------------------------------------------------------->
     <div>
-        @if ($timesheets)
-            @foreach($timesheets as $timesheet)
-                <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
-                        <div class="w-full flex items-center justify-between p-6 space-x-6">
-                            <div class="flex-1 truncate">
-                                <div class="flex items-center space-x-3">
-                                    <h3 class="text-gray-900 text-sm font-medium truncate">{{ $timesheet->project }}</h3>
-                                    {{-- <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ $timesheet->status }}</span> --}}
-                                </div>
-                                <p class="mt-1 text-gray-500 text-sm truncate">City: {{ $timesheet->city }}</p>
-                                <p class="mt-1 text-gray-500 text-sm truncate">Time In: {{ $timesheet->timeIn }}</p>
-                                <p class="mt-1 text-gray-500 text-sm truncate">Time Out: {{ $timesheet->timeOut }}</p>
-                                <p class="mt-1 text-gray-500 text-sm truncate">Total Hours: {{ $timesheet->hours }}</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            @endforeach
+        @if ($user->timesheets)
+        @foreach($user->timesheets as $timesheet)
+
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Date
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Time From
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Time To
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Date Submitted
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Odd row -->
+                                <tr class="bg-white">
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->created_at }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->time_to }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->time_from }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->date_submitted }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Clock Out</a>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Submit</a>
+                                    </td>
+                                </tr>
+
+                                <!-- Even row -->
+                                <tr class="bg-gray-50">
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->created_at }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->time_to }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->time_from }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $timesheet->date_submitted }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Clock Out</a>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Submit</a>
+                                    </td>
+                                </tr>
+
+                                <!-- More people... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @endforeach
         @endif
     </div>
 </div>

@@ -12,10 +12,8 @@ class Create extends Component
 
     public $showTimesheetModal = false;
     public $activeProjectSelected;
-    public $btnStatus = "Clock In";
-    
-    public $currentUserId;
-
+    public $isWorking;
+   
     /**
      * Create listeners for other components.
      */
@@ -35,42 +33,25 @@ class Create extends Component
         $this->showTimesheetModal = true;
     }
 
-    public function storeTimesheet($isWorking) 
+    public function storeTimesheet($id) 
     {  
-        // I saved the current user signed in to a variable.
-        $isWorking = 0;
-        $this->currentUserId =auth()->user()->id;
-        $date = date('mmddyy');
-        $time = time();
+        $user_id = auth()->user()->id; // Used to track the user that inputs the time.
+        $project_id = $id; //Used to track the project that the user is applying time for.
+        $isWorking = true; // Track when the user is working. 
+
+        $timesheets =new Timesheet();
+            $timesheets->user_id = $user_id; // Used to track the user that inputs the time.
+            $timesheets->project_id = $project_id;  // Used to track the project that the time is charged to.
+            $timesheets->isWorking = $isWorking; // Use to see if user is actively working.
         
+        $timesheets->save(); 
 
-        // User is working if value is 1.
-        if( boolval($isWorking) == 0 )
+        if($timesheets->save())
         {
-            
-            $timesheet =new Timesheet();
-            $timesheet->user_id = $this->currentUserId; // Used to track the user that inputs the time.
-            $timesheet->project_id = $this->activeProjectSelected;  // Used to track the project that the time is charged to.
-            $timesheet->date = $date; // Used to track the date of the time entry.
-            $timesheet->time_from = $time; // Used to see when user clocks in
-            $timesheet->isWorking = $isWorking; // Use to see if user is actively working.
-           
-            // Change the value from Clock In to Clock Out
-            $this->btnStatus = 'Clock Out'; 
-            
-        } 
-        
-        elseif( boolval($isWorking) == 1 )
-        {
+            dd("Saved Successfully!");
+        };
 
-            // $this->currentUserId->timesheets->where('isworking', 1)->update('time_to', $time);
-            
-            // $this->currentUserId->timesheets->where('isworking', 1)->update('isWorking', 0);
-
-            $this->btnStatus = 'Clock In';
-
-            $value = 0;
-        }
+        $this->reset();
         
     }
         
@@ -83,7 +64,8 @@ class Create extends Component
         // I returned to the view all the project that the user is assigned to. 
         return view('livewire.timesheet.create', [
             'user' => User::find($currentUserId),
-            'projects' => $this->activeProjectSelected
+            'projects' => $this->activeProjectSelected,
+            
         ]);
     }
 }

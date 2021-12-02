@@ -7,7 +7,7 @@
 
         <!-- Modal Content -->
         <x-slot name="content">
-            <form class="w-full">
+            <form class="w-full" wire:submit.prevent="storeTimesheet( {{ $activeProjectSelected }} )">
                 @csrf
 
                 <div class="flex flex-wrap -mx-3 mb-2">
@@ -24,13 +24,13 @@
                                 If the project is active, list the active project the user is assigned to.  
                             -->
                             @foreach($user->projects as $project)
-                                @if($project->status == 'Active')
-                                    <option value="{{ $project->id }}">{{ $project->project_name }}</option>
-                                @endif
+                            @if($project->status == 'Active')
+                            <option value="{{ $project->id }}">{{ $project->project_name }}</option>
+                            @endif
                             @endforeach
                         </select>
                         @error('activeProjectSelected')
-                            <span class="error text-red-700 font-bold">{{ $message }}</span>
+                        <span class="error text-red-700 font-bold">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -39,46 +39,57 @@
                     -->
                     <div class="w-full px-5 mb-6">
                         @if($activeProjectSelected)
-                            <p>
-                               <b>Project #:</b> {{ $project->id }}
-                            </p>
-                            <p>
-                               <b>Site:</b> {{ $project->street }}
-                            </p>
-                            <p>
-                               <b>Borough:</b> {{ $project->city }}
-                            </p>
+                        <p>
+                            <b>Project #:</b> {{ $project->id }}
+                        </p>
+                        <p>
+                            <b>Site:</b> {{ $project->street }}
+                        </p>
+                        <p>
+                            <b>Borough:</b> {{ $project->city }}
+                        </p>
+
                         @else
-                            <p>Please select your assigned project.</p>
+                        <p>Please select your assigned project.</p>
                         @endif
                     </div>
-                </div>             
+                </div>
+                <div  class="text-center">
+                    <x-jet-button>Start</x-jet-button>
+                </div>
             </form>
 
 
         </x-slot>
 
         <!-- Modal Footer -->
-        
+
         <x-slot name="footer">
             @if($activeProjectSelected)
-                <div 
-                    class="text-center"
-                    x-data="{ show: false }">
-                    <div 
-                        x-show="show" 
-                        >
+            <form wire:submit.prevent="storeTimesheet" class="hidden">
+                <div class="pt-5">
+                    <!-- Toggle B -->
+                    <div class="flex items-center justify-center w-full mb-12">
+
+                        <label for="isWorking" class="flex items-center cursor-pointer">
+                            <!-- toggle -->
+                            <div>
+                                <!-- input -->
+                                <input wire:model.lazy="status" type="checkbox" id="status" name="status" class="sr-only">
+                            </div>
+                            <!-- label -->
+                            <div class="ml-3 text-gray-700 font-medium">
+                                <x-jet-button>Start Clock {{ $isWorking }}</x-jet-button>
+                            </div>
+                        </label>
+
                     </div>
-                        
-                        <x-jet-button 
-                            @click="show = !show"
-                            x-text="show ? 'Clock Out' : 'Clock In' "
-                            >
-                        </x-jet-button>
+
                 </div>
+            </form>
             @endif
         </x-slot>
-        
+
 
     </x-jet-dialog-modal>
-</div>  
+</div>
