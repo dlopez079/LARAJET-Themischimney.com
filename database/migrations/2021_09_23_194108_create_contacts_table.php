@@ -24,6 +24,7 @@ class CreateContactsTable extends Migration
             $table->string('email')->unique(); // There will not be two of the same emails. 
             $table->string('tel', 10);
             $table->string('cel', 10);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class CreateProjectsTable extends Migration
             $table->string('state')->default('NY');
             $table->string('zip');
             $table->longText('description')->nullable();
-            $table->string('status')->default('Active');
+            $table->boolean('status')->default(true);
             $table->timestamps();
 
         });
