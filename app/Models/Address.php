@@ -20,6 +20,14 @@ class Address extends Model
       return AddressFactory::new();    
    }
 
+   /**
+    * A Address can belong to many companies.
+    * For example, there are many companies in 1 office building.
+    */
+   public function companies() 
+   {
+      return $this->belongsToMany(Company::class);
+   }
 }
 
 
