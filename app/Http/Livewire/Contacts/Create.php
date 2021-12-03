@@ -3,28 +3,39 @@
 namespace App\Http\Livewire\Contacts;
 
 use Livewire\Component;
-use App\Models\Contact;
-use Livewire\WithPagination;
+use App\Models\Company;
+use App\Models\Type;
+
 
 class Create extends Component
 {
-    use WithPagination;
 
-    public $client;
-    public $name;
-    public $slug;
-    public $street;
-    public $city;
-    public $zip;
-    public $contact;
-    public $phone;
-    public $email;
-    public $website;
-    public $status;
-    public $description;
-    public $user_id;
+    // Variable used to show Modal
     public $showModalForm = false;
 
+    // Company fieldset variables
+    public $name;
+    public $companyType;
+    public $mainLine;
+    public $website;
+
+    // Company Address fieldset variables
+    public $street;
+    public $street2;
+    public $city;
+    public $zip;
+
+    // Contact fieldset variables
+    public $firstName;
+    public $lastName;
+    public $title;
+    public $email;
+    public $cel;
+
+    // User ID to keep track of who is entering data. 
+    public $user_id;
+    
+    // Created a listener function for other components to send ignite instructions on this component.
     protected function getListeners()
     {
         return [
@@ -32,11 +43,12 @@ class Create extends Component
         ];
     }
     
-    // public $slug = SlugService::createSlug(contact::class, 'slug', 'My First Post');
 
-    // ***** SHOW CLIENT MODAL FORM *****
-    // This functionj/method is responsible for displaying the client modal form.
-    // The client model form is where you will enter and save client information. 
+    /** 
+     * SHOW CLIENT MODAL FORM
+     * This functionj/method is responsible for displaying the client modal form.
+     * The client model form is where you will enter and save client information. 
+    */
     public function showCreateContactModal() {
         
         // Change the public variable showModelForm from false to true because you are going from not showing the modal to showing it. 
@@ -44,47 +56,70 @@ class Create extends Component
 
     }
 
-    // ***** STORE CLIENT INFO *****
-    // Create a method for storeClient for the Create Client Modal
+    /** 
+     * STORE COMPANY INFO
+     * Create a method for storeClient for the Create Client Modal
+    */
     public function storeContact()
     {
 
         // Gather information from the Create Client Modal and enter it into MySql.
         $this->validate([
+            // Company fieldset
             'name' => 'required',
-            'street' => 'required',
-            'city' => 'required',
-            'zip' => 'required',
-            'contact' => 'required',
-            'phone' => 'required | digits:10',
-            'email' => 'required | email',
+            'companyType' => 'require',
+            'mainLine' => 'required | digits:10',
             'website' => 'required | url',
-            'description' => 'required | min:6 | max: 150',
-            'status' => 'required'
+
+            // Company Address fieldset
+            'street' => 'required',
+            // 'street2' => 'required' (NOT CURRENTLY RQUIRED.)
+            // 'city' => 'required', (NOT CURRENTLY REQUIRED.)
+            'zip' => 'required | max:10',
+            
+
+            // Contact Fieldset
+            'firstName' => 'required', 
+            'lastName' => 'required',
+            'title' => 'required', 
+            'email' => 'required | email',
+            'cel' => 'required | digits:10',
         ]);
 
-        $contacts =new Contact();
-        $contacts->user_id = auth()->user()->id;
-        $contacts->name = $this->name;
-        $contacts->slug = $this->slug;
-        $contacts->street = $this->street;
-        $contacts->city = $this->city;
-        $contacts->zip = $this->zip;
-        $contacts->contact = $this->contact;
-        $contacts->phone = $this->phone;
-        $contacts->email = $this->email;
-        $contacts->website = $this->website;
-        $contacts->description = $this->description;
-        $contacts->status = $this->status;
+        // Create a new Company object/record.
+        $company =new Company();
+
+            // User that is entering data.
+            $company->user_id = auth()->user()->id;
+
+            // Company Fieldset
+            $company->name = $this->name;
+            $company->type->name = $this->companyType;
+            $company->mainLine = $this->mainLine;
+            $company->website = $this->website;
+
+            // Address Fieldset
+            $company->addresses->street = $this->street;
+            $company->addresses->street2 = $this->street2;
+            // $company->city = $this->city;  DEFAULT 'NY' ON DATABASE
+            $company->addresses->zip = $this->zip;
+
+            // Contact Fieldset
+            $company->contacts->first_name = $this->firstName;
+            $company->contacts->last_name = $this->lastName;
+            $company->contacts->title = $this->title;
+            $company->contacts->email = $this->email;
+            $company->contacts->cel = $this->cel;
         
-        $contacts->save();
+        $company->save();
         $this->reset();
     }
+
     public function render()
     {
- 
+
         return view('livewire.contacts.create', [
-            'contacts' => Contact::orderBy('id', 'desc')->paginate(5),
+            'types' => Type::all()
        ]);
     }
 }
