@@ -15,9 +15,9 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id'); // Created to keep trace of the user that is entering data.
             $table->string('street')->unique(); // We should not have the same address twice.
-            $table->char('floor', 2); // The number of the floor will never be 3 digits.
-            $table->string('room'); // The rooms will be written out.
+            $table->string('street 2')->nullable(); // The number of the floor will never be 3 digits.
             $table->string('city'); // The city will be written out.
             $table->char('st', 2); // The state will always be 2 digits in caps.
             $table->string('zip', 10); // The zip code will be 10 digits with a hyphen.  
