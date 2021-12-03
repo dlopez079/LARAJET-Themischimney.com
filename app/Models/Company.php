@@ -40,10 +40,10 @@ class Company extends Model
 
     /**
      * A Company many have many addresses
-     * Addresses Table must have a column of 'company_id'.
+     * Some company may have multiple offices.
      */
     public function addresses()
     {
-        return $this->hasMany(Addresses::class);
+        return $this->belongsToMany(Address::class);
     }
 }
