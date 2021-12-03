@@ -7,11 +7,10 @@
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:client-form></livewire:client-form>
+            <livewire:contacts.create></livewire:contacts.create>
+            <livewire:contacts.show></livewire:contacts.show>
+            <livewire:contacts.view></livewire:contacts.view>
         </div>
-
-        <livewire:client-details></livewire:client-details>
-
         
     </div>
 </x-app-layout>
