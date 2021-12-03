@@ -20,4 +20,12 @@ class Contact extends Model
       return ContactFactory::new();    
    }
 
+   /**
+    * Contacts belongs to a company
+    */
+
+    public function company()
+    {
+       return $this->belongsTo(Company::class);
+    }
 }
