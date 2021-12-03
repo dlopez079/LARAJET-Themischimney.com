@@ -41,4 +41,13 @@ class Project extends Model
     {
         return $this->belongsToMany(User::class, 'project_user')->withTimestamps();
     }
+
+    /**
+     * One Project can belong to one company.
+     * Must put foreign ID in table refering to company_id.
+     */
+    public function company()
+    {
+       return $this->belongsTo(Company::class);
+    }
 }

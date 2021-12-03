@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_name');
             $table->string('manager')->nullable();  // Who is the project manager.
             $table->string('slug')->unique();
-            $table->foreignId('client_id')->nullable();
+            $table->foreignId('company_id')->nullable();
             $table->foreignId('prime_id')->nullable();
             $table->foreignId('general_contractor_id')->nullable();
             $table->string('street');
