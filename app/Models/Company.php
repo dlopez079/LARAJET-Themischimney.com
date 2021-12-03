@@ -15,7 +15,7 @@ class Company extends Model
      * The company belongs to one type
      * The method is in singular
      */
-    public function contactType()
+    public function type()
     {
         return $this->belongsTo(ContactType::class);
     }
