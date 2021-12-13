@@ -33,9 +33,9 @@
                         {{ __('Timesheets') }}
                     </x-jet-nav-link>
 
-                    {{-- Contacts Navigation Dropdown in a link --}}
-                    <x-jet-nav-link href="{{ route('contacts') }}" :active="request()->routeIs('contacts')">
-                        {{ __('Contacts') }}
+                    {{-- Company Navigation Dropdown in a link --}}
+                    <x-jet-nav-link href="{{ route('company') }}" :active="request()->routeIs('company')">
+                        {{ __('Company') }}
                     </x-jet-nav-link>
 
                 </div>
@@ -200,8 +200,8 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('contacts') }}" :active="request()->routeIs('contacts')">
-                {{ __('Contacts') }}
+            <x-jet-responsive-nav-link href="{{ route('company') }}" :active="request()->routeIs('company')">
+                {{ __('Company') }}
             </x-jet-responsive-nav-link>
         </div>
 

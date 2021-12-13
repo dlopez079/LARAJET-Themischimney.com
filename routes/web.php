@@ -25,9 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/projects', function () {
     return view('/projects/show');
 })->name('projects');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/contacts', function () {
-    return view('/contacts.show');
-})->name('contacts');
+Route::middleware(['auth:sanctum', 'verified'])->get('/company', function () {
+    return view('/company.show');
+})->name('company');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/prime', function () {
     return view('/prime.show');

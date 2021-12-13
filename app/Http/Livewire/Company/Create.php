@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Contacts;
+namespace App\Http\Livewire\Company;
 
 use Livewire\Component;
 use App\Models\Company;
@@ -117,7 +117,7 @@ class Create extends Component
     public function render()
     {
 
-        return view('livewire.contacts.create', [
+        return view('livewire.company.create', [
             'types' => Type::all(),
        ]);
     }

@@ -1,15 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Contacts') }}
+            {{ __('Company') }}
         </h2>
     </x-slot>
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:contacts.create></livewire:contacts.create>
-            <livewire:contacts.show></livewire:contacts.show>
-            <livewire:contacts.view></livewire:contacts.view>
+            <livewire:company.create></livewire:company.create>
+            <livewire:company.show></livewire:company.show>
+
         </div>
         
     </div>
