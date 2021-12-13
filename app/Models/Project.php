@@ -50,4 +50,13 @@ class Project extends Model
     {
        return $this->belongsTo(Company::class);
     }
+
+    /**
+     * One Project has many timesheet entries.
+     * Must put a column on timesheets that refers to the project_id
+     */
+    public function timesheets()
+    {
+        return $this->hasMany(Timesheet::class);
+    }
 }
