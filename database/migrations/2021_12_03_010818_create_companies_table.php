@@ -17,10 +17,11 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->foreignId('user_id'); // Created to keep trace of the user that is entering data.
             $table->string('name'); // Created to hold the name of the company
-            $table->foreignId('company_type_id'); // A column to hold the contact type for ths company/client.
-            $table->string('address'); // Creatd to hold the address ID for the address of the company that will be saved on another table.
-            $table->string('main_line, 10'); // Created to hold the main line of the company. 
+            $table->foreignId('type_id'); // A column to hold the contact type for ths company/client.
+            $table->string('main_line', 10); // Created to hold the main line of the company. 
             $table->string('website'); // Created to hold the website of the company. 
+            $table->string('address_id'); // Creatd to hold the address ID for the address of the company that will be saved on another table.
+            $table->string('contact_id'); // Creatd to hold the address ID for the address of the company that will be saved on another table.
             $table->boolean('status')->default(true);  // Created to maintain the status of the company. When a record is entered the default will automatically be true.
             $table->timestamps();
         });

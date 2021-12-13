@@ -73,8 +73,7 @@ class Create extends Component
 
             // Company Address fieldset
             'street' => 'required',
-            // 'street2' => 'required' (NOT CURRENTLY RQUIRED.)
-            // 'city' => 'required', (NOT CURRENTLY REQUIRED.)
+            'city' => 'required',
             'zip' => 'required | max:10',
             
 

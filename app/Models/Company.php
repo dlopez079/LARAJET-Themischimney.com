@@ -17,7 +17,7 @@ class Company extends Model
      */
     public function type()
     {
-        return $this->belongsTo(ContactType::class);
+        return $this->belongsTo(Type::class);
     }
 
     /**
