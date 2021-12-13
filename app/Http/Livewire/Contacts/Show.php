@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Contacts;
 
+use App\Models\Company;
 use Livewire\Component;
 use App\Models\Contact;
 use Livewire\WithPagination; // Required to paginate the list of projects. 
@@ -15,7 +16,8 @@ class Show extends Component
     public function render()
     {
         return view('livewire.contacts.show', [
-            'contacts' => Contact::orderBy('id', 'desc')->paginate(5),
+            'companies' => Company::orderBy('id', 'desc')->paginate(5),
+            
         ]);
     }
 }
