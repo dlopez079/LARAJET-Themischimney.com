@@ -3,7 +3,7 @@
     <div wire:model="showProjectCard" id="projectCard">
 
         <div class="mt-6 text-gray-500 text-center pb-3">
-            Select Client Above to display Details.
+            Select Company Above to display Details.
         </div>
 
         <div x-show="open" x-transition class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -55,13 +55,13 @@
                         </dd>
                     </div>
 
-                    <!-- Client -->
+                    <!-- Company -->
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">
-                            Client
+                            Company
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            {{ $selected_client }}
+                            {{ $selected_company }}
                         </dd>
                     </div>
 

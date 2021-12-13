@@ -29,7 +29,6 @@ class View extends Component
     public $selected_company;
     public $selected_primary_contractor;
     public $selected_general_contractor;
-    public $selected_client;
     public $selected_phone;
     public $selected_email;
     public $selected_website;
@@ -68,8 +67,8 @@ class View extends Component
         // Show company $general_contractor
         $this->selected_general_contractor = $company->general_contractor_id;
 
-        // Show company client
-        $this->selected_client = $company->client_id;
+        // Show company company
+        $this->selected_company = $company->company_id;
 
         // Show company street
         $this->selected_street = $company->street.",";

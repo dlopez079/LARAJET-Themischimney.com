@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Project;
 
 use Livewire\Component;
+use App\Models\Company;
 use App\Models\Project;
 use App\Models\Attachment;
 use Livewire\WithFileUploads;  // Required for attachments
@@ -17,7 +18,7 @@ class Create extends Component
 
     // Created to capture the value from the form.
     public $project_name; 
-    public $client;
+    public $company;
     public $primary_contractor;
     public $general_contractor;
     public $street;
@@ -56,14 +57,13 @@ class Create extends Component
         // Gather information from the Create Project Modal and enter it into MySql.
         $this->validate([
             'project_name' => 'required',
-            'client' => 'required',
+            'company' => 'required',
             'primary_contractor' => 'required',
             'general_contractor' => 'required',
             'street' => 'required',
             'city' => 'required',
             'zip' => 'required',
             'description' => 'required',
-            'status' => 'required',
             'attachments.*' => 'max:102400 ', // Requiired validation for attachments
         ]);
 
@@ -74,15 +74,14 @@ class Create extends Component
         $project->project_name = $this->project_name;
         
         $project->slug = $this->slug;
-        $project->client_id = $this->client;
+        $project->company_id = $this->company;
         $project->prime_id = $this->primary_contractor;
         $project->general_contractor_id = $this->general_contractor;
         $project->street = $this->street;
         $project->city = $this->city;
-        // $project->state = $this->state;  NOT REQUIRED RIGHT NOW BECAUSE THE CLIENTS ARE ONLY IN NYC.
+        // $project->state = $this->state;  NOT REQUIRED RIGHT NOW BECAUSE THE companyS ARE ONLY IN NYC.
         $project->zip = $this->zip;
         $project->description = $this->description;
-        $project->status = $this->status;
 
         $project->save(); 
         
@@ -127,6 +126,8 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.project.create');
+        return view('livewire.project.create', [
+            'companies' => Company::all()
+        ]);
     }
 }

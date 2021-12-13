@@ -48,7 +48,8 @@ class Create extends Component
 
         if($timesheets->save())
         {
-            dd("Saved Successfully!");
+            // Emit to project edit to refresh the selected project.  
+            return redirect()->to('/projects');
         };
 
         $this->reset();

@@ -24,7 +24,7 @@
                                 If the project is active, list the active project the user is assigned to.  
                             -->
                             @foreach($user->projects as $project)
-                            @if($project->status == 'Active')
+                            @if($project->status == 1)
                             <option value="{{ $project->id }}">{{ $project->project_name }}</option>
                             @endif
                             @endforeach

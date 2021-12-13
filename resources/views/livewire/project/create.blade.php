@@ -21,16 +21,18 @@
                         @error('project_name') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
                     </div>
 
-                    <!-- Client Dropdown -->
+                    <!-- Company Dropdown -->
                     <div class="w-full px-5 mb-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-general-contractor">
-                            Client
+                            Company
                         </label>
-                        <select wire:model.lazy="client" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-client" name="grid-client">
-                            <option value="" selected>Select Client</option>
-                            <option value="1" selected>Client 1</option>
-                            <option value="2" selected>Client 2</option>
-                            <option value="3" selected>Client 3</option>
+                        <select wire:model.lazy="company" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-Company" name="grid-company">
+                        <option value="" selected>Select Company</option>
+                            @foreach($companies as $company)
+                                @if($company->type_id == 1)
+                                <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
 
@@ -41,9 +43,11 @@
                         </label>
                         <select wire:model.lazy="primary_contractor" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-primary-contractor" name="grid-primary-contractor">
                             <option value="" selected>Select Primary Contractor</option>
-                            <option value="1" selected>Primary Contractor 1</option>
-                            <option value="2" selected>Primary Contractor 2</option>
-                            <option value="3" selected>Primary Contractor 3</option>
+                            @foreach($companies as $company)
+                                @if($company->type_id == 2)
+                                <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
 
@@ -54,9 +58,11 @@
                         </label>
                         <select wire:model.lazy="general_contractor" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="general-contractor" name="grid-general-contractor">
                             <option value="" selected>Select General Contractor</option>
-                            <option value="1" selected>General Contractor 1</option>
-                            <option value="2" selected>General Contractor 2</option>
-                            <option value="3" selected>General Contractor 3</option>
+                            @foreach($companies as $company)
+                                @if($company->type_id == 3)
+                                <option value="{{ $company->id }}" selected>{{ $company->name }}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
 
@@ -102,26 +108,6 @@
                         </label>
                         <textarea wire:model.lazy="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-description" name="grid-description" type="text" placeholder="Enter description" rows="5"></textarea>
                         @error('description') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
-                    </div>
-
-                    <!-- Status Field -->
-                    <div class="w-full px-5 mb-6">
-
-                        <div class="flex">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 px-2" for="grid-active">
-                                Active
-                            </label>
-                            <input wire:model.lazy="status" id="grid-active" name="grid-active" type="radio" value="Active">
-
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 px-2" for="grid-notActive">
-                                Not Active
-                            </label>
-                            <input wire:model.lazy="status" id="grid-notActive" name="grid-notActive" type="radio" value="Not Active">
-                        </div>
-                        
-                        <div>
-                        @error('status') <span class="error text-red-700 font-bold">{{ $message }}</span> @enderror
-                        </div>
                     </div>
 
                     <!-- Attachment Field -->

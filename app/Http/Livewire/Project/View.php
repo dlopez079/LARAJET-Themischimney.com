@@ -35,7 +35,7 @@ class View extends Component
     public $selected_description;
     public $selected_primary_contractor;
     public $selected_general_contractor;
-    public $selected_client;
+    public $selected_company;
     public $assignedMechanics;
 
     // Add a listener for the anchor tag listings on Form.
@@ -71,8 +71,8 @@ class View extends Component
         // Show project $general_contractor
         $this->selected_general_contractor = $project->general_contractor_id;
 
-        // Show project client
-        $this->selected_client = $project->client_id;
+        // Show project company
+        $this->selected_company = $project->company_id;
 
         // Show project street
         $this->selected_street = $project->street.",";

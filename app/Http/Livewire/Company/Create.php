@@ -111,6 +111,9 @@ class Create extends Component
             // $company->contacts->cel = $this->cel;
         
         $company->save();
+        // Emit to project edit to refresh the selected project.  
+        return redirect()->to('/company');
+
         $this->reset();
     }
 
