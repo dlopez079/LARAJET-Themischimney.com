@@ -55,6 +55,7 @@
                     </div>
                 </div>
                 <div  class="text-center">
+                    
                     <x-jet-button>Start</x-jet-button>
                 </div>
             </form>
@@ -62,32 +63,10 @@
 
         </x-slot>
 
-        <!-- Modal Footer -->
+        <!-- Modal Footer IS NOT ACTIVE -->
 
         <x-slot name="footer">
-            @if($activeProjectSelected)
-            <form wire:submit.prevent="storeTimesheet" class="hidden">
-                <div class="pt-5">
-                    <!-- Toggle B -->
-                    <div class="flex items-center justify-center w-full mb-12">
-
-                        <label for="isWorking" class="flex items-center cursor-pointer">
-                            <!-- toggle -->
-                            <div>
-                                <!-- input -->
-                                <input wire:model.lazy="status" type="checkbox" id="status" name="status" class="sr-only">
-                            </div>
-                            <!-- label -->
-                            <div class="ml-3 text-gray-700 font-medium">
-                                <x-jet-button>Start Clock {{ $isWorking }}</x-jet-button>
-                            </div>
-                        </label>
-
-                    </div>
-
-                </div>
-            </form>
-            @endif
+            
         </x-slot>
 
 
