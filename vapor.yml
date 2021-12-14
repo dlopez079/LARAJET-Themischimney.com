@@ -25,4 +25,7 @@ environments:
             - 'php artisan event:cache'
             - 'npm ci && npm run dev && rm -rf node_modules'
         deploy:
-            - 'php artisan migrate'
+            - 'php artisan migrate:fresh'
+            - 'php artisan db:seed TypeSeeder'
+            - 'php artisan db:seed CompanySeeder'
+            - 'php artisan db:seed ProjectSeeder'

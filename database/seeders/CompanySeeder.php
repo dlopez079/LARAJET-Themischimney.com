@@ -21,7 +21,7 @@ class CompanySeeder extends Seeder
         $company->name = 'Company 001';
         $company->type_id = "1";
         $company->main_line = "1234567890";
-        $company->website = "https://www.mattmen.com";
+        $company->website = "https://www.company001.com";
         $company->save();
 
         $company = new Company;
@@ -29,7 +29,7 @@ class CompanySeeder extends Seeder
         $company->name = 'Company 002';
         $company->type_id = "2";
         $company->main_line = "1234567890";
-        $company->website = "https://www.mattmen.com";
+        $company->website = "https://www.company002.com";
         $company->save();
 
         $company = new Company;
@@ -37,7 +37,7 @@ class CompanySeeder extends Seeder
         $company->name = 'Company 003';
         $company->type_id = "3";
         $company->main_line = "1234567890";
-        $company->website = "https://www.mattmen.com";
+        $company->website = "https://www.company002.com";
         $company->save();
         
     }
