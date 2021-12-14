@@ -20,6 +20,9 @@
                                 <tr>
 
                                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Project Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Date
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -28,10 +31,7 @@
                                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Time To
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Date Submitted
-                                    </th>
-                                    </th>
+
                                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Clock Out
                                     </th>
@@ -46,19 +46,19 @@
                                 @foreach($user->timesheets as $timesheet)
 
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->created_at }}
+                                        {{ $timesheet->project->project_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->time_to }}
+                                        {{ $timesheet->date }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
                                         {{ $timesheet->time_from }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->date_submitted }}
+                                        {{ $timesheet->time_to }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Clock Out</a>
+                                        <a wire:click.prevent="timeTo({{ $timesheet->id }})" class="text-indigo-600 hover:text-indigo-900">Clock Out</a>
                                     </td>
                                 </tr>
                                 @endforeach
