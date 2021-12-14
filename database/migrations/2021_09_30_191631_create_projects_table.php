@@ -17,14 +17,13 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('project_name');
             $table->string('manager')->nullable();  // Who is the project manager.
-            $table->string('slug')->unique();
             $table->foreignId('company_id')->nullable();
             $table->foreignId('prime_id')->nullable();
             $table->foreignId('general_contractor_id')->nullable();
-            $table->string('street');
-            $table->string('city');
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
             $table->string('state')->default('NY');
-            $table->string('zip');
+            $table->string('zip')->nullable();
             $table->longText('description')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
