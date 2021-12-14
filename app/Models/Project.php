@@ -9,18 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    use Sluggable;
+
 
     protected $guarded = [];
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'project_name', 'id'
-            ]
-        ];
-    }
+
 
     /**
      * Get the attachments for the Project.
