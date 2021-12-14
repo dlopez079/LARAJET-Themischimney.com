@@ -23,12 +23,16 @@ class ProjectFactory extends Factory
     {
         return [
             // Project fields
-            // 'street' => $this->faker->unique()->streetAddress(),
-            // 'floor' => $this->faker->randomDigitNotNull(),
-            // 'room' => $this->faker->secondaryAddress(), //secondaryAddress(), ex. 'Suite 961'
-            // 'city' => $this->faker->citySuffix(), //citySuffix() ex.'borough'
-            // 'st' => $this->faker->stateAbbr(), //stateAbbr() ex.'OH'
-            // 'zip' => $this->faker->postcode(), //postcode() ex.'17916'
+            'project_name' => $this->faker->unique()->streetAdress(),
+            'company' => 1,
+            'prime_id' => 2,
+            'general_contractor_id' => 3,
+            'street' => $this->faker->unique()->streetAddress(),
+            'floor' => $this->faker->randomDigitNotNull(),
+            'room' => $this->faker->secondaryAddress(), //secondaryAddress(), ex. 'Suite 961'
+            'city' => $this->faker->citySuffix(), //citySuffix() ex.'borough'
+            'st' => 'NY', //stateAbbr() ex.'OH'
+            'zip' => $this->faker->postcode(), //postcode() ex.'17916'
         ];
     }
 }
