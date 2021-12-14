@@ -72,8 +72,7 @@ class Create extends Component
         // Creata a new Project object and save information for MySQl
         $project =new Project();
         $project->project_name = $this->project_name;
-        
-        $project->slug = $this->slug;
+
         $project->company_id = $this->company;
         $project->prime_id = $this->primary_contractor;
         $project->general_contractor_id = $this->general_contractor;
