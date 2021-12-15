@@ -8,69 +8,94 @@
     </div>
     <!-- timesheet Card: We will insert for each statement here. ----------------------------------------------------------------------->
     <div>
-        
+
 
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
+                <div class="pt-2">
+                    <div class="overflow-hidden">
 
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Project Name
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Date
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Time From
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Time To
-                                    </th>
+                        <!-- Time Card List -->
+                        
+                                <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                    @if ($user->timesheets)
+                                    @foreach ($user->timesheets as $timesheet)
+                                    <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                                        <div class="w-full flex items-center justify-between p-6 space-x-6">
+                                            <div class="flex-1 truncate">
 
-                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Clock Out
-                                    </th>
+                                                {{-- Project Date --}}
+                                                <div class="flex items-center space-x-3">
+                                                    <h3 class="text-gray-900 text-sm font-medium truncate">Project Date:
+                                                    </h3>
+                                                    <span
+                                                        class="mt-1 text-gray-500 text-sm truncate">{{ $timesheet->date }}</span>
+                                                </div>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!--  row -->
-                                <tr class="bg-white">
+                                                {{-- Project Name --}}
+                                                <div class="flex items-center space-x-3">
+                                                    <h3 class="text-gray-900 text-sm font-medium truncate">Project Name:
+                                                    </h3>
+                                                    <span
+                                                        class="mt-1 text-gray-500 text-sm truncate">{{ $timesheet->project->project_name }}</span>
+                                                </div>
 
-                                @if ($user->timesheets)
-                                @foreach($user->timesheets as $timesheet)
+                                                
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->project->project_name }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->date }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->time_from }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">
-                                        {{ $timesheet->time_to }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                        <a wire:click.prevent="timeTo({{ $timesheet->id }})" class="text-indigo-600 hover:text-indigo-900">Clock Out</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @endif
-                                
-                            </tbody>
-                        </table>
+                                                {{-- Project Clock In Time --}}
+                                                <div class="flex items-center space-x-3">
+                                                    <h3 class="text-gray-900 text-sm font-medium truncate">Time From:
+                                                    </h3>
+                                                    <span
+                                                        class="mt-1 text-gray-500 text-sm truncate">{{ $timesheet->time_from }}</span>
+                                                </div>
+
+                                                {{-- Project Clock Out Time --}}
+                                                <div class="flex items-center space-x-3">
+                                                    <h3 class="text-gray-900 text-sm font-medium truncate">Time To:</h3>
+                                                    <span
+                                                        class="mt-1 text-gray-500 text-sm truncate">{{ $timesheet->time_to }}</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        {{-- Clock Out Button --}}
+                                        @if (!$timesheet->time_to)
+                                            <div>
+                                                <div class="-mt-px flex divide-x divide-gray-200">
+                                                    <div class="w-0 flex-1 flex">
+                                                        <a wire:click.prevent="timeTo({{ $timesheet->id }})"
+                                                            href="mailto:janecooper@example.com"
+                                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                                                            <span class="ml-3">Clock Out</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                        <div>
+                                            <div class="-mt-px flex divide-x divide-gray-200">
+                                                <div class="w-0 flex-1 flex">
+                                                    <span class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                                                        <span class="ml-3">Already Clocked Out</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                    </li>
+                                    @endforeach
+                                    @endif
+                                </ul>
+                            
                     </div>
                 </div>
             </div>
         </div>
 
-        
+
+
     </div>
 </div>
