@@ -2,15 +2,30 @@
     <!-- Project Buttons -->
     <div class="text-center p-3 mx-auto">
 
-        <x-jet-button wire:click="$emit('showCreateTimesheetModal')">
-            New Timesheet
-        </x-jet-button>
+            {{-- If the current user is actively working. --}}
+            @if($currentUserIsWorking)
+            
+            <div class="bg-red-600">
+ 
+                <h3 class="text-white font-medium ">
+                    PLEASE CLOCK OUT!!!
+                </h3>
+            </div>
+            
+            
+            {{-- If the current user is not actively working --}}
+            @else
+            {{ $currentUserIsWorking }}
+                <x-jet-button wire:click="$emit('showCreateTimesheetModal')">
+                    New Timesheet
+                </x-jet-button>
+            @endif
+        
     </div>
     <!-- timesheet Card: We will insert for each statement here. ----------------------------------------------------------------------->
     <div>
-
-
-        <!-- This example requires Tailwind CSS v2.0+ -->
+        
+      <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="pt-2">
@@ -68,7 +83,7 @@
                                                     <div class="w-0 flex-1 flex">
                                                         <a wire:click.prevent="timeTo({{ $timesheet->id }})"
                                                             href="mailto:janecooper@example.com"
-                                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                                                            class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 bg-red-600 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                                             <span class="ml-3">Clock Out</span>
                                                         </a>
                                                     </div>
@@ -79,7 +94,7 @@
                                             <div class="-mt-px flex divide-x divide-gray-200">
                                                 <div class="w-0 flex-1 flex">
                                                     <span class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
-                                                        <span class="ml-3">Already Clocked Out</span>
+                                                        <span class="ml-3">Clocked Out</span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -94,8 +109,6 @@
                 </div>
             </div>
         </div>
-
-
 
     </div>
 </div>
