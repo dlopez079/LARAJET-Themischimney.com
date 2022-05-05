@@ -13,7 +13,7 @@
                     <div class="relative flex items-top justify-center dark:bg-gray-900 sm:items-center sm:pt-0">
                         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                             <div class="mt-8 overflow-hidden">
-                                <div class="grid grid-cols-1 md:grid-cols-2">
+                                <div class="grid grid-cols-1 md:grid-cols-1">
 
                                     <!-- Get In Touch Card -->
                                     <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
@@ -49,13 +49,13 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                             </svg>
                                             <div class="ml-4 text-sm tracking-wide font-semibold w-40">
-                                                info@themischimney.com
+                                                <a href="mailto:info@themischimney.com">info@themischimney.com</a>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Form Section-->
-                                                                
+{{--                                                                 
                                     <form wire:submit.prevent="submitContactForm" class="p-6 flex flex-col justify-center">
                                         <div class="flex flex-col">
                                             @if($success)
@@ -112,7 +112,7 @@
                                         <button type="submit" class="md:w-32 bg-red-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-red-500 transition ease-in-out duration-300">
                                             Submit
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                                 
                             </div>
