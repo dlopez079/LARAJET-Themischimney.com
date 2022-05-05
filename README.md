@@ -61,7 +61,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **David Lopez** - *Initial work* - [dlopez](https://github.com/dlopez)
+* **David Lopez** - *Initial work* - [dlopez](https://github.com/dlopez079)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
