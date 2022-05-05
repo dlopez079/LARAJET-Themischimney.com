@@ -1,6 +1,6 @@
-# Project Title
+# Themis Chimney
 
-One Paragraph of project description goes here
+Themis Chimney began as a project just for a landing page so people can view their product and services.  Themis wanted a online presence that contained their contact information for communication.  As time went on, they played with an idea of having their own application.  They would like to manage their projects, contractors, employees and employee time.  This is not the actual application that will be used in production.  I created this to show them how an application can organized their working environment.
 
 ## Getting Started
 
@@ -11,50 +11,35 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+WSL 2.0
+Ubuntu Distribution
+Laravel
+Sail
+Jetstream
+Livewire
+Vapor / AWS
+
 ```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Windows
+1. Download and install the following: 
+> Docker Desktop
+> WSL 2.0
+> Ubuntu Distribution
 
-```
-Give the example
-```
+2. Within Ubuntu, create a project using the Laravel Framework
+3. Navigate into the project.
 
-And repeat
+4. Install the following packages: 
+> Sail/Docker.
+> Jetstream/Livewire.
+> Vapor
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+5. To configure Vapor, you must have an AWS account.
 
 ## Built With
 
@@ -72,7 +57,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **David Lopez** - *Initial work* - [dlopez](https://github.com/dlopez)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -82,6 +67,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Too everyone!
