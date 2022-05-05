@@ -26,26 +26,30 @@ Vapor / AWS
 A step by step series of examples that tell you how to get a development env running
 
 Windows
-1. Download and install the following: 
-> Docker Desktop
-> WSL 2.0
-> Ubuntu Distribution
+> Download and install the following: 
+1. Docker Desktop
+2. WSL 2.0
+3. Ubuntu Distribution
 
-2. Within Ubuntu, create a project using the Laravel Framework
-3. Navigate into the project.
+> Within Ubuntu, create a project using the Laravel Framework
+> Navigate into the project.
 
-4. Install the following packages: 
-> Sail/Docker.
-> Jetstream/Livewire.
-> Vapor
+> Install the following packages: 
+1. Sail/Docker
+2. Jetstream/Livewire
+3. Vapor
 
 5. To configure Vapor, you must have an AWS account.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [WSL2.0](https://docs.microsoft.com/en-us/windows/wsl/about) - Windows Subsystem Linux for Windows Users
+* [Ubuntu](https://ubuntu.com/) -Ubuntu Distribution on Windows 11 Platform.
+* [Laravel](https://laravel.com/) - Laravel-The PHP Framework for Web Artisans
+* [Sail](https://laravel.com/docs/9.x/sail) - Laravel Sail is a light-weight command-line interface for interacting with Laravel's default Docker development environment.
+* [Jetstream](https://jetstream.laravel.com/1.x/introduction.html) - Laravel Jetstream is a beautifully designed application starter kit for Laravel and provides the perfect starting point for your next Laravel application. 
+* [Livewire](https://laravel-livewire.com/) - Livewire is a full-stack framework for Laravel
+* [Vapor](https://docs.vapor.build/1.0/introduction.html) - Laravel Vapor is an auto-scaling, serverless deployment platform for Laravel, powered by AWS Lambda. 
 
 ## Contributing
 
