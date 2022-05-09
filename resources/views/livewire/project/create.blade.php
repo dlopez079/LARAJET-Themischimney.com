@@ -115,7 +115,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-attachments">
                             Attachments
                         </label>
-                            <input wire:model="attachments" id="grid-attachments" name="grid-attachments" type="file" multiple class="pt-2">
+                            <input wire:model="attachments" id="grid-attachments" name="grid-attachments" type="file" class="pt-2">
                             @error('attachments') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
