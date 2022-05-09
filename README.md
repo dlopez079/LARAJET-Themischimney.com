@@ -71,4 +71,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Too everyone!
+* **University of Central Florida** - [UCF] (https://github.com/UCF-Coding-Boot-Camp)
