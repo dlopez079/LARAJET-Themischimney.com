@@ -64,7 +64,7 @@ class Create extends Component
             'city' => 'required',
             'zip' => 'required',
             'description' => 'required',
-            'attachments.*' => 'max:102400 ', // Requiired validation for attachments
+            'attachments.*' => 'required|file|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048', // Requiired validation for attachments
         ]);
 
         
@@ -99,9 +99,9 @@ class Create extends Component
             
             $fileName = date("Ymd-hi").'-'.$attachment->getClientOriginalName(); // Save the original name of the file along with a time stamp in a variable called fileName
             
-            $path = $attachment->storeAs('attachments', strval($fileName), 's3-public'); // Save attachment on Amazon S3// Store in the "attachment" directory of the local-themischimney.com bucket with original file name.  The file name must be a string so I obtain the string value from the variable.
+            $path = $attachment->storeAs('attachments', strval($fileName), 's3'); // Save attachment on Amazon S3// Store in the "attachment" directory of the local-themischimney.com bucket with original file name.  The file name must be a string so I obtain the string value from the variable.
             
-            $url = 'https://'.env('AWS_BUCKET_PUBLIC').'.s3.amazonaws.com/'.$path; // Put the URL together for the file just uploaded.
+            $url = 'https://'.env('AWS_BUCKET').'.s3.amazonaws.com/'.$path; // Put the URL together for the file just uploaded.
 
             // Create an objec that will include the current parent component object and along with the fileName and $url
             $fileRecord = new Attachment(); // Create a new Attachment object that will store info for the attachment table in MySQL.
