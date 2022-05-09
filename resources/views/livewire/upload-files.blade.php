@@ -10,8 +10,8 @@
             <form class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 @csrf
                 <div class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <input type="file" id="file" ref="file" wire:model="files">
-                    @error('files.*') <span class="error">{{ $message }}</span> @enderror
+                    <input type="file" id="file" ref="file" wire:model="file">
+                    @error('file.*') <span class="error">{{ $message }}</span> @enderror
                 </div>
             </form>
         </x-slot>

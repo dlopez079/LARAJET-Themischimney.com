@@ -112,11 +112,11 @@
 
                     <!-- Attachment Field -->
                     <div class="w-full px-5 mb-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-attachments">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-file">
                             Attachments
                         </label>
-                            <input wire:model="attachments" id="grid-attachments" name="grid-attachments" type="file" class="pt-2">
-                            @error('attachments') <span class="error">{{ $message }}</span> @enderror
+                            <input wire:model="file" id="grid-file" name="grid-file" type="file" class="pt-2">
+                            @error('file') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
